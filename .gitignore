@@ -1,0 +1,26 @@
+# dependencies
+node_modules*
+
+# logs
+npm-debug.log*
+
+# Nuxt build
+.nuxt
+
+# Nuxt generate
+dist
+docs
+
+# WebStorm config
+.idea
+
+# VS Code config
+.vscode
+
+# Firebase config
+database.rules.json
+firebase.json
+.firebaserc
+
+# Configuration file
+env.js
