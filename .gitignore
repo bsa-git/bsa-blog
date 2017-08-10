@@ -11,12 +11,6 @@ npm-debug.log*
 dist
 docs
 
-# WebStorm config
-.idea
-
-# VS Code config
-.vscode
-
 # Firebase config
 database.rules.json
 firebase.json
@@ -24,3 +18,5 @@ firebase.json
 
 # Configuration file
 env.js
+.idea
+
