@@ -21,11 +21,6 @@
             <v-layout>
                 <v-flex xs12 sm6 offset-sm3>
                     <v-card>
-                        <!--
-                        <br />
-                        <v-card-media src="/img/doc/blog/gapi/devices_2x.png" height="344px" style="margin: 20px">
-                        </v-card-media>
-                        -->
                         <v-toolbar class="blue darken-4" dark>
                             <v-btn to="/blog/gapi/" icon>
                                 <v-icon>more_horiz</v-icon>
@@ -38,7 +33,7 @@
                         </v-toolbar>
                         <v-card-title primary-title>
                             <div>
-                                <h3 class="headline mb-0">Google Client API</h3>
+                                <h3 class="headline mb-0">Google Client API - Введение</h3>
                                 <div>
                                     Вы можете использовать в своих клиенских веб приложениях такие Google сервисы как
                                     People, Calendar, Drive и т.д. Для этого нужно использовать JavaScript клиенскую библиотеку,
