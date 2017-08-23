@@ -17,27 +17,42 @@
                 </v-layout>
             </v-parallax>
             <br/>
-            <v-card>
-                <v-card-text>
-                    <p class="headline">Welcome to the Vuetify - Nuxt template.</p>
-                    <p>
-                        Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications. For more information on Vuetify, check out the <a
-                            href="https://vuetifyjs.com" target="_blank">documentation</a>. If you have questions, please join the official <a
-                            href="https://gitter.im/vuetifyjs/Lobby" target="_blank" title="chat">gitter</a>. Find a bug? Report it on the github <a
-                            href="https://github.com/vuetifyjs/vuetify/issues" target="_blank" title="contribute">issue board</a>.
-                    </p>
-                    <p>
-                        Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-                    <div class="text-xs-right">
-                        <em>
-                            <small>&mdash; John Leider</small>
-                        </em>
-                    </div>
-                </v-card-text>
-                <v-card-actions>
-                    <v-btn primary flat router to="/components/layout">Continue</v-btn>
-                </v-card-actions>
-            </v-card>
+
+            <v-layout>
+                <v-flex xs12 sm6 offset-sm3>
+                    <v-card>
+                        <!--
+                        <br />
+                        <v-card-media src="/img/doc/blog/gapi/devices_2x.png" height="344px" style="margin: 20px">
+                        </v-card-media>
+                        -->
+                        <v-toolbar class="blue darken-4" dark>
+                            <v-btn to="/blog/gapi/" icon>
+                                <v-icon>more_horiz</v-icon>
+                            </v-btn>
+                            <v-toolbar-title class="white--text">Google Client API</v-toolbar-title>
+                            <v-spacer></v-spacer>
+                            <v-btn href="https://github.com/bsa-git" target="_blank" icon>
+                                <v-icon>search</v-icon>
+                            </v-btn>
+                        </v-toolbar>
+                        <v-card-title primary-title>
+                            <div>
+                                <h3 class="headline mb-0">Google Client API</h3>
+                                <div>
+                                    Вы можете использовать в своих клиенских веб приложениях такие Google сервисы как
+                                    People, Calendar, Drive и т.д. Для этого нужно использовать JavaScript клиенскую библиотеку,
+                                    чтобы взаимодействовать с Google APIs...
+                                </div>
+                            </div>
+                        </v-card-title>
+                        <v-card-actions>
+                            <v-btn to="/blog/gapi/"  class="orange--text"  flat>Подробнее...</v-btn>
+                            <v-btn href="https://github.com/bsa-git" class="orange--text" target="_blank" flat>Git-Hub</v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </v-flex>
+            </v-layout>
         </v-container>
     </div>
 </template>

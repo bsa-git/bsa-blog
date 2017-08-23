@@ -11,6 +11,7 @@
                     <h1>Введение.</h1>
                     Вы можете использовать в своих клиенских веб приложениях такие Google сервисы как People, Calendar, Drive и т.д.
                     Для этого нужно использовать  JavaScript клиенскую библиотеку, чтобы взаимодействовать с Google APIs.
+                    Оригинал статьи можно посмотреть <a href="https://developers.google.com/api-client-library/javascript/start/start-js" target="_blank">здесь</a>.
                     <section>
                         <h2>Настройка доступа</h2>
 
@@ -22,7 +23,7 @@
 
                         <h3>Создать Google проект</h3>
                         <p>
-                            Перейти к <a href="https://console.developers.google.com/project" target="_blank">Google API Консоли.</a>.
+                            Перейти к <a href="https://console.developers.google.com/project" target="_blank">Google API Консоли</a>.
                             Нажмите <strong>Создать проект</strong> введите имя проекта, и нажмите <strong>Создать</strong>.
                            Если у вас уже есть проекты, то выберете существующий проект.
                         </p>
@@ -196,9 +197,7 @@
 </template>
 
 <script>
-    import hljs from 'highlight.js'
-    import 'highlight.js/styles/xcode.css'
-
+    import Highlight from '~/plugins/lib/highlight.class'
     export default {
         data() {
             return {
@@ -216,15 +215,7 @@
         },
         mounted: function () {
             this.$store.commit('SET_THEME', 'blog');
-            this.iniHighlight();
-        },
-        methods: {
-            iniHighlight: function () {
-                const els = document.getElementsByClassName('highlight');
-                _.forEach(els, function(el) {
-                    hljs.highlightBlock(el);
-                });
-            }
+            Highlight.initBlock();
         }
     }
 </script>

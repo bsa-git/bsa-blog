@@ -94,15 +94,15 @@
                 items: [
                     {icon: 'apps', title: 'Блог', to: '/'},
                     {icon: 'contacts', title: 'Об авторе', to: '/about'},
-                    {
-                        action: 'shop',
-                        title: 'Проекты',
-                        children: [
-                            {icon: 'alarm_add', title: 'Error-404', to: '/warnings/emit-error'},
-                            {icon: 'alarm_on', title: 'Error-500', to: '/warnings/emit-error-fetch'},
-                            {icon: 'build', title: 'Maintenance', to: '/warnings/maintenance'}
-                        ]
-                    },
+//                    {
+//                        action: 'shop',
+//                        title: 'Проекты',
+//                        children: [
+//                            {icon: 'alarm_add', title: 'Error-404', to: '/warnings/emit-error'},
+//                            {icon: 'alarm_on', title: 'Error-500', to: '/warnings/emit-error-fetch'},
+//                            {icon: 'build', title: 'Maintenance', to: '/warnings/maintenance'}
+//                        ]
+//                    },
 //                    {
 //                        action: 'message',
 //                        title: 'Темы',
@@ -127,8 +127,8 @@
                         title: 'Google Client API',
                         children: [
                             {icon: 'filter_none', title: 'Введение', to: '/blog/gapi/'},
-                            {icon: 'mail_outline', title: 'Email', to: '/blog/gapi/email'},
-                            {icon: 'location_on', title: 'Maps', to: '/blog/gapi/maps'},
+//                            {icon: 'mail_outline', title: 'Email', to: '/blog/gapi/email'},
+//                            {icon: 'location_on', title: 'Maps', to: '/blog/gapi/maps'},
                         ]
                     }
                 ]
