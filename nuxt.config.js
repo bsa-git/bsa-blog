@@ -22,6 +22,11 @@ module.exports = {
         link: [
             {rel: 'icon', type: 'image/x-icon', href: '/img/favicon.ico'},
             // {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'}
+            // {rel: 'stylesheet', href: '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css'}
+        ],
+        script: [
+            // Highlight.js
+            // {src: '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'},
         ]
     },
     /*

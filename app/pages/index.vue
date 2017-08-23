@@ -7,8 +7,13 @@
         <v-container>
             <v-parallax src="/img/system/vbanner.jpg">
                 <v-layout column align-center justify-center>
-                    <h1 class="white--text">BSA Lab.</h1>
-                    <h4 class="white--text">Разработка WEB приложений!</h4>
+                    <h1 class="white--text exotic--light">BSA Lab.</h1>
+                    <h5 class="white--text ma-3">Обучение программированию не может научить быть экспертом, также как и изучение кистей и красок не может превратить кого-либо в художника.</h5>
+                    <div class="text-xs-right">
+                        <em>
+                            <small>&mdash; Eric S. Raymond</small>
+                        </em>
+                    </div>
                 </v-layout>
             </v-parallax>
             <br/>

@@ -29,6 +29,9 @@ const state = {
             comp: {
                 base: 'brown'
             },
+            blog: {
+                base: 'brown'
+            },
             about: {
                 base: 'purple'
             },

@@ -2,7 +2,6 @@
 //@import url(http://fonts.googleapis.com/css?family=Playball);
 @require "./fonts/Playball/style.css"
 
-
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
@@ -19,7 +18,7 @@
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
+  font-size: 24px; /* Preferred icon size */
   display: inline-block;
   line-height: 1;
   text-transform: none;
@@ -40,7 +39,6 @@
   font-feature-settings: 'liga';
 }
 
-
 // ============================================================
 // Vuetify colors
 // ============================================================
@@ -53,14 +51,14 @@
 
 // --- MAIN --- //
 main#page-content
-  //min-height: 'calc(100vh - %s - %s)' % ($toolbar-height $footer-height)
+//min-height: 'calc(100vh - %s - %s)' % ($toolbar-height $footer-height)
   min-height: 'calc(100vh - %s)' % ($footer-height)
 
 iframe#my-resume
   min-height: 'calc(100vh - %s)' % ($footer-height)
   min-width 100%
-  marginheight="0"
-  marginwidth="0"
+  marginheight = "0"
+  marginwidth = "0"
 
 // --- ERROR --- //
 #img-error
@@ -75,6 +73,10 @@ iframe#my-resume
 
 .card-title .subheading
   color: $grey.darken-1
+
+.list .subheader {
+  height: 48px !important
+}
 
 // --- EXOTIC --- //
 .exotic--dark
@@ -93,6 +95,78 @@ iframe#my-resume
 .exotic--light .icon
   color: $grey.darken-4
 
+// --- BLOG --- //
+
+.date-publication {
+  font-style: italic;
+}
 
 
+.blog-post h1 {
+  color: #757575;
+  font: 300 34px / 40px Roboto, sans-serif;
+  letter-spacing: -.01em;
+  margin: 40px 0 20px;
+}
+
+.blog-post h2 {
+  border-bottom: 1px solid #ebebeb;
+  font: 300 24px / 32px Roboto, sans-serif;
+  letter-spacing: -.01em;
+  margin: 40px 0 20px;
+  padding-bottom: 3px;
+}
+
+.blog-post h3 {
+  font: 400 20px / 32px Roboto, sans-serif;
+  margin: 32px 0 16px;
+}
+
+.blog-post h4 {
+  font: 400 18px/32px Roboto,sans-serif;
+  margin: 32px 0 16px;
+}
+
+.blog-post table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font: 14px/20px Roboto,sans-serif;
+  margin: 16px 0;
+}
+
+.blog-post tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+.blog-post th {
+  color: #fff;
+  font: 500 16px/24px Roboto,sans-serif;
+  height: 48px;
+  padding: 8px;
+  vertical-align: middle;
+  background: #78909c;
+  border: 0;
+  border-top: 1px solid #cfd8dc;
+  text-align: left;
+}
+
+.blog-post td {
+  background: rgba(255,255,255,.95);
+  border: 1px solid #cfd8dc;
+  vertical-align: top;
+  color: #212121;
+  padding: 7px 8px 8px;
+}
+
+
+// --- HIGHLIGHT --- //
+
+code.highlight {
+  width: 100%;
+  background: #f5f5f5;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 

@@ -31,6 +31,8 @@
             </v-toolbar>
             <v-divider></v-divider>
             <template v-for="(item, i) in items">
+                <v-divider v-if="item.divider"></v-divider>
+                <v-subheader v-if="item.header" v-text="item.header"></v-subheader>
                 <v-list-group v-if="item.children && !miniVariant">
                     <v-list-tile slot="item">
                         <v-list-tile-action>
@@ -93,29 +95,40 @@
                     {icon: 'apps', title: 'Блог', to: '/'},
                     {icon: 'contacts', title: 'Об авторе', to: '/about'},
                     {
-                        action: 'message',
-                        title: 'Темы',
-                        children: [
-                            {icon: 'list', title: 'Lists', to: '/components/lists'},
-                            {icon: 'payment', title: 'Cards', to: '/components/cards'},
-                            {icon: 'recent_actors', title: 'Carousels', to: '/components/carousels'},
-                            {icon: 'view_day', title: 'Expansion panels', to: '/components/expansion-panels'},
-                            {icon: 'message', title: 'Dialogs', to: '/components/dialogs'},
-                            {icon: 'tab', title: 'Tabs', to: '/components/tabs'},
-                            {icon: 'directions_walk', title: 'Steppers', to: '/components/steppers'},
-                            {icon: 'view_module', title: 'Data tables', to: '/components/data-tables'},
-                            {icon: 'today', title: 'Date/Time Pickers', to: '/components/pickers'},
-                            {icon: 'format_indent_increase', title: 'Text fields', to: '/components/text-fields'},
-                            {icon: 'assignment', title: 'Forms', to: '/components/forms'}
-                        ]
-                    },
-                    {
                         action: 'shop',
                         title: 'Проекты',
                         children: [
                             {icon: 'alarm_add', title: 'Error-404', to: '/warnings/emit-error'},
                             {icon: 'alarm_on', title: 'Error-500', to: '/warnings/emit-error-fetch'},
                             {icon: 'build', title: 'Maintenance', to: '/warnings/maintenance'}
+                        ]
+                    },
+//                    {
+//                        action: 'message',
+//                        title: 'Темы',
+//                        children: [
+//                            {icon: 'list', title: 'Lists', to: '/components/lists'},
+//                            {icon: 'payment', title: 'Cards', to: '/components/cards'},
+//                            {icon: 'recent_actors', title: 'Carousels', to: '/components/carousels'},
+//                            {icon: 'view_day', title: 'Expansion panels', to: '/components/expansion-panels'},
+//                            {icon: 'message', title: 'Dialogs', to: '/components/dialogs'},
+//                            {icon: 'tab', title: 'Tabs', to: '/components/tabs'},
+//                            {icon: 'directions_walk', title: 'Steppers', to: '/components/steppers'},
+//                            {icon: 'view_module', title: 'Data tables', to: '/components/data-tables'},
+//                            {icon: 'today', title: 'Date/Time Pickers', to: '/components/pickers'},
+//                            {icon: 'format_indent_increase', title: 'Text fields', to: '/components/text-fields'},
+//                            {icon: 'assignment', title: 'Forms', to: '/components/forms'}
+//                        ]
+//                    },
+                    {
+                        divider: true,
+                        header: 'Темы',
+                        action: 'message',
+                        title: 'Google Client API',
+                        children: [
+                            {icon: 'filter_none', title: 'Введение', to: '/blog/gapi/'},
+                            {icon: 'mail_outline', title: 'Email', to: '/blog/gapi/email'},
+                            {icon: 'location_on', title: 'Maps', to: '/blog/gapi/maps'},
                         ]
                     }
                 ]
