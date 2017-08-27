@@ -92,17 +92,18 @@
         data() {
             return {
                 items: [
-                    {icon: 'apps', title: 'Блог', to: '/'},
+                    {icon: 'apps', title: 'Главная', to: '/'},
                     {icon: 'contacts', title: 'Об авторе', to: '/about'},
-//                    {
-//                        action: 'shop',
-//                        title: 'Проекты',
-//                        children: [
-//                            {icon: 'alarm_add', title: 'Error-404', to: '/warnings/emit-error'},
-//                            {icon: 'alarm_on', title: 'Error-500', to: '/warnings/emit-error-fetch'},
-//                            {icon: 'build', title: 'Maintenance', to: '/warnings/maintenance'}
-//                        ]
-//                    },
+                    {icon: 'dvr', title: 'Блог', to: '/blog/'},
+                    {
+                        action: 'shop',
+                        title: 'Проекты',
+                        children: [
+                            {icon: 'alarm_add', title: 'Error-404', to: '/warnings/emit-error'},
+                            {icon: 'alarm_on', title: 'Error-500', to: '/warnings/emit-error-fetch'},
+                            {icon: 'build', title: 'Maintenance', to: '/warnings/maintenance'}
+                        ]
+                    },
 //                    {
 //                        action: 'message',
 //                        title: 'Темы',

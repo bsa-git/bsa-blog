@@ -57,6 +57,7 @@ module.exports = {
     },
     plugins: [
         '~plugins/vuetify.js',
+        // '~plugins/vue-carousel.js',
         // '~plugins/vee-validate.js',
     ],
     css: [

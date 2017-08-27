@@ -65,7 +65,7 @@
                 navLeft: true,
                 navLeftClipped: false,
                 navLeftMini: false,
-                navLeftTheme: 'dark',
+                navLeftTheme: 'dark', // light dark
                 navRight: false,
                 footerFixed: false,
             }
