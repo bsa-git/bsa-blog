@@ -94,14 +94,15 @@
                 items: [
                     {icon: 'apps', title: 'Главная', to: '/'},
                     {icon: 'contacts', title: 'Об авторе', to: '/about'},
-                    {icon: 'dvr', title: 'Блог', to: '/blog/'},
+                    {icon: 'library_books', title: 'Блог', to: '/blog/'},
                     {
                         action: 'shop',
-                        title: 'Проекты',
+                        title: 'Портфолио',
                         children: [
-                            {icon: 'alarm_add', title: 'Error-404', to: '/warnings/emit-error'},
-                            {icon: 'alarm_on', title: 'Error-500', to: '/warnings/emit-error-fetch'},
-                            {icon: 'build', title: 'Maintenance', to: '/warnings/maintenance'}
+                            {icon: 'filter_none', title: 'Главная', to: '/portfolio/'},
+//                            {icon: 'alarm_add', title: 'Error-404', to: '/warnings/emit-error'},
+//                            {icon: 'alarm_on', title: 'Error-500', to: '/warnings/emit-error-fetch'},
+//                            {icon: 'build', title: 'Maintenance', to: '/warnings/maintenance'}
                         ]
                     },
 //                    {
@@ -128,8 +129,8 @@
                         title: 'Google Client API',
                         children: [
                             {icon: 'filter_none', title: 'Введение', to: '/blog/gapi/'},
-//                            {icon: 'mail_outline', title: 'Email', to: '/blog/gapi/email'},
-//                            {icon: 'location_on', title: 'Maps', to: '/blog/gapi/maps'},
+                            {icon: 'mail_outline', title: 'Email', to: '/blog/gapi/email'},
+                            {icon: 'location_on', title: 'Maps', to: '/blog/gapi/maps'},
                         ]
                     }
                 ]

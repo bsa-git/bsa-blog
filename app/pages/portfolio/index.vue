@@ -11,23 +11,23 @@
                         <v-btn to="/" title="Главная" icon>
                             <v-icon>home</v-icon>
                         </v-btn>
-                        <v-toolbar-title>Заметки</v-toolbar-title>
+                        <v-toolbar-title>Портфолио</v-toolbar-title>
                         <v-spacer></v-spacer>
                         <v-btn href="https://github.com/bsa-git" target="_blank" title="GitHub" icon>
                             <v-icon>public</v-icon>
                         </v-btn>
                     </v-toolbar>
                     <v-list two-line dark>
-                        <template v-for="post in posts">
-                            <v-subheader v-if="post.header" v-text="post.header"></v-subheader>
-                            <v-divider v-else-if="post.divider" v-bind:inset="post.inset"></v-divider>
-                            <v-list-tile avatar v-else :to="post.to" :key="post.title">
+                        <template v-for="project in projects">
+                            <v-subheader v-if="project.header" v-text="project.header"></v-subheader>
+                            <v-divider v-else-if="project.divider" v-bind:inset="project.inset"></v-divider>
+                            <v-list-tile avatar v-else :to="project.to" :key="project.title">
                                 <v-list-tile-avatar>
-                                    <v-icon dark>{{ post.icon }}</v-icon>
+                                    <v-icon dark>{{ project.icon }}</v-icon>
                                 </v-list-tile-avatar>
                                 <v-list-tile-content>
-                                    <v-list-tile-title v-html="post.title"></v-list-tile-title>
-                                    <v-list-tile-sub-title v-html="post.subtitle"></v-list-tile-sub-title>
+                                    <v-list-tile-title v-html="project.title"></v-list-tile-title>
+                                    <v-list-tile-sub-title v-html="project.subtitle"></v-list-tile-sub-title>
                                 </v-list-tile-content>
                             </v-list-tile>
                         </template>
@@ -44,9 +44,9 @@
     export default {
         data() {
             return {
-                title: 'Блог',
-                description: 'Заметки о самом важном.',
-                posts: [
+                title: 'Портфолио',
+                description: 'Мои проекты.',
+                projects: [
                     {header: 'Google Client API'},
                     {
                         icon: 'filter_none',
@@ -59,14 +59,14 @@
                         icon: 'mail_outline',
                         to: '/blog/gapi/email',
                         title: 'Google Mail',
-                        subtitle: "<span class='grey--text text--lighten-2'>Сервис Google Mail</span> позволяет нам передавать/принимать почтовые сообщения..."
+                        subtitle: "Сервис <span class='grey--text text--lighten-2'>Google Mail</span> позволяет нам передавать/принимать почтовые сообщения..."
                     },
                     {divider: true, inset: true},
                     {
                         icon: 'location_on',
                         to: '/blog/gapi/maps',
                         title: 'Google Maps',
-                        subtitle: "<span class='grey--text text--lighten-2'>Сервис Google Maps</span> позволяет нам работать с географическими данными и координатами..."
+                        subtitle: "Сервис <span class='grey--text text--lighten-2'>Google Maps</span> позволяет нам работать с географическими данными и координатами..."
                     },
                 ]
             }
@@ -82,7 +82,7 @@
         },
         fetch({store, error}) {
             try {
-                store.commit('SET_THEME', 'blog')
+                store.commit('SET_THEME', 'portfolio')
             } catch (e) {
                 error(e)
             }

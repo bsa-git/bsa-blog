@@ -37,6 +37,9 @@ const state = {
             },
             info: {
                 base: 'indigo'
+            },
+            portfolio: {
+                base: 'blue-grey'
             }
         }
     }

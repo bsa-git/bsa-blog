@@ -11,6 +11,10 @@ const getTheme = function (state) {
     return state.system.theme.current
 };
 
+const getThemeRegister = function (state) {
+    return state.system.theme.register
+};
+
 const getConfig = function (state) {
     return state.system.config
 };
@@ -53,6 +57,7 @@ export default {
     getSystem,
     getUserAgent,
     getTheme,
+    getThemeRegister,
     getConfig,
     getError,
     isError,

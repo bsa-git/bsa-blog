@@ -13,7 +13,7 @@
                 <v-layout row>
                     <v-flex xs12 sm10 offset-sm1>
                         <v-card class="ma-3" dark>
-                            <v-toolbar dark>
+                            <v-toolbar   dark>
                                 <v-toolbar-side-icon></v-toolbar-side-icon>
                                 <v-toolbar-title>Inbox</v-toolbar-title>
                                 <v-spacer></v-spacer>

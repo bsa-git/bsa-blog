@@ -33,6 +33,8 @@
         <app-footer
                 :fixed="footerFixed"
                 :copyright="config.personal_data.copyright"
+                :site="config.personal_data.designed_with_url"
+                :developer="config.personal_data.designed_with"
         ></app-footer>
     </v-app>
 </template>
