@@ -16,7 +16,7 @@
                         </em>
                     </div>
                     <div>
-                        <v-btn to="/blog/gapi/" class="orange--text" flat>Контакты...</v-btn>
+                        <v-btn to="/contacts" class="orange--text" flat>Контакты...</v-btn>
                         <v-btn href="https://github.com/bsa-git" class="orange--text" target="_blank" flat>
                             Проекты на Git-Hub
                         </v-btn>

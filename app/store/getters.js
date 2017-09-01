@@ -19,6 +19,10 @@ const getConfig = function (state) {
     return state.system.config
 };
 
+const getPersonalData = function (state) {
+    return state.system.config.personal_data
+};
+
 const getError = function (state) {
     return state.system.error
 };
@@ -59,6 +63,7 @@ export default {
     getTheme,
     getThemeRegister,
     getConfig,
+    getPersonalData,
     getError,
     isError,
     isAuthenticated,

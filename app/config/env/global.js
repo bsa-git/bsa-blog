@@ -20,9 +20,12 @@ export default {
         designed_with: 'Sample Studio',
         designed_with_url: 'https://www.sample.com/iamgurdeeposahan',
         contact: {
+            myImg: '/img/system/user_female.png',
             address: '795 Sample Ave, Suite 600',
-            phone: '+01 234 567 890',
-            email: 'sample@sample.com',
+            phonePersonal: '+01 234 567 890',
+            phoneWork: '+01 234 567 890',
+            emailPersonal: 'personal@sample.com',
+            emailWork: 'work@sample.com',
             website: 'www.sample.com'
         },
         twitter: {url: '#', tag: '@Sample'},
@@ -31,14 +34,9 @@ export default {
             twitter: {url: '#', icon: 'fa-twitter'},
             google: {url: '#', icon: 'fa-google-plus'},
             skype: {url: '#', icon: 'fa-skype'}
-        },
-        blog: {
-            url: '/blog/home1',
-            total: 3 // Count of posts on page
-        },
-        portfolio: {
-            url: '/portfolio/col-1',
-            total: 6 // Count of items on page
         }
+    },
+    pagination:{
+        total: 6
     }
 }

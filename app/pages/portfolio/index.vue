@@ -18,16 +18,16 @@
                         </v-btn>
                     </v-toolbar>
                     <v-list two-line dark>
-                        <template v-for="project in projects">
-                            <v-subheader v-if="project.header" v-text="project.header"></v-subheader>
-                            <v-divider v-else-if="project.divider" v-bind:inset="project.inset"></v-divider>
-                            <v-list-tile avatar v-else :to="project.to" :key="project.title">
+                        <template v-for="(item, index) in getItems">
+                            <v-subheader v-if="item.header" v-text="item.header"></v-subheader>
+                            <v-divider v-else-if="item.divider" v-bind:inset="item.inset"></v-divider>
+                            <v-list-tile avatar v-else :to="item.to" :key="index">
                                 <v-list-tile-avatar>
-                                    <v-icon dark>{{ project.icon }}</v-icon>
+                                    <v-icon dark>{{ item.icon }}</v-icon>
                                 </v-list-tile-avatar>
                                 <v-list-tile-content>
-                                    <v-list-tile-title v-html="project.title"></v-list-tile-title>
-                                    <v-list-tile-sub-title v-html="project.subtitle"></v-list-tile-sub-title>
+                                    <v-list-tile-title v-html="item.title"></v-list-tile-title>
+                                    <v-list-tile-sub-title v-html="item.subtitle"></v-list-tile-sub-title>
                                 </v-list-tile-content>
                             </v-list-tile>
                         </template>
@@ -35,40 +35,26 @@
                 </v-card>
             </v-flex>
         </v-layout>
+        <div id="portfolio-pagination" class="text-xs-center mt-5">
+            <v-pagination v-bind:length.number="pagination.totalPages()" v-model="page"
+                          total-visible="3"></v-pagination>
+        </div>
     </div>
 </template>
 
 <script>
     import {mapGetters} from 'vuex'
+    import Pagination from '~/plugins/lib/pagination.class'
+    import portfolioProjects from '~/store/data/portfolio-projects'
 
     export default {
         data() {
             return {
                 title: 'Портфолио',
                 description: 'Мои проекты.',
-                projects: [
-                    {header: 'Google Client API'},
-                    {
-                        icon: 'filter_none',
-                        to: '/blog/gapi/',
-                        title: 'Введение',
-                        subtitle: "Вы можете использовать в своих клиенских веб приложениях такие Google сервисы как <span class='grey--text text--lighten-2'>People...</span>"
-                    },
-                    {divider: true, inset: true},
-                    {
-                        icon: 'mail_outline',
-                        to: '/blog/gapi/email',
-                        title: 'Google Mail',
-                        subtitle: "Сервис <span class='grey--text text--lighten-2'>Google Mail</span> позволяет нам передавать/принимать почтовые сообщения..."
-                    },
-                    {divider: true, inset: true},
-                    {
-                        icon: 'location_on',
-                        to: '/blog/gapi/maps',
-                        title: 'Google Maps',
-                        subtitle: "Сервис <span class='grey--text text--lighten-2'>Google Maps</span> позволяет нам работать с географическими данными и координатами..."
-                    },
-                ]
+                page: 1,
+                pagination: null,
+                items: portfolioProjects.items,
             }
         },
         head() {
@@ -80,15 +66,31 @@
                 link: []
             }
         },
-        fetch({store, error}) {
-            try {
-                store.commit('SET_THEME', 'portfolio')
-            } catch (e) {
-                error(e)
+        created: function () {
+            // Set theme
+            this.$store.commit('SET_THEME', 'portfolio')
+            // Create Pagination data
+            if (!this.pagination) {
+                this.pagination = new Pagination({items: this.items, total: this.config.pagination.total});
             }
         },
-        computed: mapGetters({
-            theme: 'getTheme'
-        })
+        computed: {
+            getItems: function () {
+                if (!this.pagination) {
+                    this.pagination = new Pagination({items: this.items, total: this.config.pagination.total});
+                }
+                return this.pagination.getItems(this.page);
+            },
+            ...mapGetters({
+                theme: 'getTheme',
+                config: 'getConfig'
+            })
+        }
     }
 </script>
+
+<style>
+    #portfolio-pagination .pagination__item--active {
+        background: #455a64;
+    }
+</style>

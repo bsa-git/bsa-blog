@@ -32,16 +32,15 @@
                 <v-list subheader>
                     <v-subheader>Информация</v-subheader>
                     <v-divider></v-divider>
-                    <!--
                     <v-list-tile
-                            target="_blank"
-                            href="https://bsa-git.github.io/bsa-resume/"
+                            to="/contacts"
                     >
-                        <v-list-tile-title>Об авторе</v-list-tile-title>
+                        <v-list-tile-action>
+                            <v-icon>contact_mail</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-title>Контакты</v-list-tile-title>
                     </v-list-tile>
-                    -->
                     <v-list-tile
-                            tag="a"
                             target="_blank"
                             href="https://bsa-git.github.io/bsa-resume/"
                     >
@@ -52,7 +51,6 @@
                     </v-list-tile>
 
                     <v-list-tile
-                            tag="a"
                             target="_blank"
                             href="https://github.com/bsa-git"
                     >
