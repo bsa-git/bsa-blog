@@ -88,6 +88,9 @@
     import axios from 'axios'
     import qs from 'qs'
     import cheerio from 'cheerio'
+    import configGapi from '~/plugins/lib/gapi/auth.json'
+    import LoadGoogleAPI from '~/plugins/lib/gapi/gapi.class'
+
 
     export default {
         validator: null,
@@ -115,6 +118,14 @@
             if (this.isAuthenticated) {
                 this.$emit('onAuthenticated', this.auth)
             }
+
+//            console.log(qs.parse(configGapi))
+            const options = qs.parse(configGapi);
+            const apiGoogle = new LoadGoogleAPI(options);
+            apiGoogle.loadGoogleAPI().then(function () {
+                apiGoogle.init();
+            });
+
         },
         computed: {
             ...mapGetters({
