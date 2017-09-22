@@ -2,11 +2,11 @@
 const getSystem = function (state) {
     return state.system
 };
-
+// --- User Agent --- //
 const getUserAgent = function (state) {
     return state.system.userAgent
 };
-
+// --- Theme --- //
 const getTheme = function (state) {
     return state.system.theme.current
 };
@@ -14,7 +14,7 @@ const getTheme = function (state) {
 const getThemeRegister = function (state) {
     return state.system.theme.register
 };
-
+// --- Config --- //
 const getConfig = function (state) {
     return state.system.config
 };
@@ -23,6 +23,10 @@ const getPersonalData = function (state) {
     return state.system.config.personal_data
 };
 
+const getConfigGapi = function (state) {
+    return state.system.config.gapi
+};
+// --- Error --- //
 const getError = function (state) {
     return state.system.error
 };
@@ -30,7 +34,7 @@ const getError = function (state) {
 const isError = function (state) {
     return  !!state.system.error.name
 };
-
+// --- Auth --- //
 const isAuthenticated = function (state) {
     return  !!state.system.auth
 };
@@ -64,6 +68,7 @@ export default {
     getThemeRegister,
     getConfig,
     getPersonalData,
+    getConfigGapi,
     getError,
     isError,
     isAuthenticated,

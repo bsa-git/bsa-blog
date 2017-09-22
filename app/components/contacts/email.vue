@@ -1,5 +1,4 @@
 <template>
-
     <v-card hover raised>
         <v-toolbar :class="`${theme.base} darken-3`" dark>
             <v-icon dark>mail</v-icon>
@@ -79,6 +78,22 @@
                 <v-btn type="reset" flat light @click.native="clearErrors">Очистить</v-btn>
             </v-card-actions>
         </form>
+        <!--Add buttons to initiate auth sequence and sign out-->
+        <div class="ma-3">
+            <!--
+            <button id="authorize-button" style="display: none;">Authorize</button>
+            <button id="signout-button" style="display: none;">Sign Out</button>
+
+            <div id="content"></div>
+
+            -->
+
+            <v-btn v-if="isSignedIn" @click.native="apiGoogle.handleSignoutClick" dark>Sign Out</v-btn>
+            <v-btn v-else @click.native="apiGoogle.handleAuthClick" dark>Authorize</v-btn>
+
+            <div>{{ myName }}</div>
+        </div>
+
     </v-card>
 </template>
 
@@ -88,8 +103,9 @@
     import axios from 'axios'
     import qs from 'qs'
     import cheerio from 'cheerio'
+
     import configGapi from '~/plugins/lib/gapi/auth.json'
-    import LoadGoogleAPI from '~/plugins/lib/gapi/gapi.class'
+    import ApiGoogle from '~/plugins/lib/gapi/gapi.class'
 
 
     export default {
@@ -100,6 +116,9 @@
         ],
         data() {
             return {
+                apiGoogle: null,
+                isSignedIn: false,
+                myName: '',
                 password: '',
                 email: '',
                 senderName: '',
@@ -118,21 +137,35 @@
             if (this.isAuthenticated) {
                 this.$emit('onAuthenticated', this.auth)
             }
-
-//            console.log(qs.parse(configGapi))
-            const options = qs.parse(configGapi);
-            const apiGoogle = new LoadGoogleAPI(options);
-            apiGoogle.loadGoogleAPI().then(function () {
-                apiGoogle.init();
-            });
-
+            // Create apiGoogle data
+            const options = {
+                apiKey: this.configGapi.apiKey,
+                clientId: this.configGapi.clientId,
+                discoveryDocs: this.configGapi.services.people.discoveryDocs,
+                scope: this.configGapi.services.people.scope
+            };
+            this.apiGoogle = new ApiGoogle(options);
+        },
+        mounted: function () {
+            this.$nextTick(function () {
+                // Load/Init Google API
+                this.apiGoogle.loadGoogleAPI()
+                    .then(() => {
+                        return this.apiGoogle.init();
+                    })
+                    .then(() => {
+                        this.updateSigninStatus(this.apiGoogle.isSignedIn());
+                        this.apiGoogle.listenSignedIn(this.updateSigninStatus.bind(this));
+                    })
+            })
         },
         computed: {
             ...mapGetters({
                 isError: 'isError',
                 storeError: 'getError',
                 isAuthenticated: 'isAuthenticated',
-                auth: 'getAuth'
+                auth: 'getAuth',
+                configGapi: 'getConfigGapi'
             })
         },
         watch: {
@@ -147,6 +180,25 @@
             }
         },
         methods: {
+            updateSigninStatus: function (isSignedIn) {
+                this.isSignedIn = isSignedIn;
+                if (isSignedIn) {
+                    this.makeApiCall();
+                }
+            },
+            makeApiCall: function () {
+                const self = this;
+                gapi.client.people.people.get({
+                    'resourceName': 'people/me',
+                    'requestMask.includeField': 'person.names'
+                }).then((resp) => {
+                    const name = resp.result.names[0].givenName;
+                    self.myName = 'Hello, ' + name + '!'
+                }, (error) => {
+                    console.log('Error gapi.client.people.people.get: ', error);
+                    alert(error)
+                });
+            },
             iniValidator: function () {
                 this.validator = new Validator({
                     senderName: 'required|alpha_spaces',

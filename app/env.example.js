@@ -5,6 +5,10 @@ export default {
     global: {
         debug: false,
         maintenance: false,
+        gapi: {
+            apiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+            clientId: 'xxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com'
+        },
         ui: {
             color_theme: 'light', // dark/light
             nav_left: {show: true, value: true},

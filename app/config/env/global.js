@@ -2,6 +2,29 @@
 export default {
     debug: false,
     maintenance: false,
+    gapi: {
+        apiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+        clientId: 'xxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com',
+        services: {
+            people: {
+                discoveryDocs: [
+                    'https://people.googleapis.com/$discovery/rest?version=v1'
+                ],
+                scope: [
+                    'profile'
+                ]
+            },
+            gmail: {
+                discoveryDocs: [
+                    'https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest'
+                ],
+                scope: [
+                    'https://www.googleapis.com/auth/gmail.readonly',
+                    'https://www.googleapis.com/auth/gmail.send'
+                ]
+            }
+        }
+    },
     ui: {
         color_theme: 'dark', // dark/light
         nav_left: {show: true, value: true},

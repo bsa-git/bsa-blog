@@ -1,10 +1,10 @@
-class LoadGoogleAPI {
+class ApiGoogle {
 
     /**
      * Creates an instance of LoadGoogleAPI.
      * @param {Object} An object of param settings.
      *
-     * @memberOf LoadGoogleAPI
+     * @memberOf ApiGoogle
      */
     constructor(options) {
         this._callbackName = '__googleApiOnLoadCallback';
@@ -14,6 +14,7 @@ class LoadGoogleAPI {
         this._discoveryDocs = options.discoveryDocs;
         this._scope = options.scope.join(' ');
         this.name = 'load-google-api';
+        this.error = null;
     }
 
     /**
@@ -21,7 +22,7 @@ class LoadGoogleAPI {
      * attaches a handler.
      * @returns {Promise} Returns a promise after injection.
      *
-     * @memberOf LoadGoogleAPI
+     * @memberOf ApiGoogle
      */
     loadGoogleAPI() {
         return new Promise((resolve, reject) => {
@@ -41,26 +42,45 @@ class LoadGoogleAPI {
      * credentials from auth file.
      * @returns {Promise} Returns a promise after successful login.
      *
-     * @memberOf LoadGoogleAPI
+     * @memberOf ApiGoogle
      */
     init() {
-        var loadGapiClient = new Promise((resolve, reject) => {
-            window.gapi.load('client:auth2', resolve);
+        const loadGapiClient = new Promise((resolve, reject) => {
+            gapi.load('client:auth2', resolve);
         });
 
-        var login = new Promise((resolve, reject) => {
-            window.gapi.client.init({
+        const login = new Promise((resolve, reject) => {
+            gapi.client.init({
                 apiKey: this._apiKey,
-                client_id: this._clientId,
+                clientId: this._clientId,
                 discoveryDocs: this._discoveryDocs,
                 scope: this._scope
-            }).then(resolve);
+            }).then(resolve, (error) => {
+                this.error = error;
+                console.log('Error gapi.client.init: ',error);
+                alert(error.details)
+            })
         });
 
         return Promise.all([loadGapiClient, login]);
+    }
 
-        // return Promise.all([loadGapiClient]);
+    isSignedIn() {
+        return gapi.auth2.getAuthInstance().isSignedIn.get();
+    }
+
+    listenSignedIn(onSigninStatus) {
+        // Listen for sign-in state changes.
+        gapi.auth2.getAuthInstance().isSignedIn.listen(onSigninStatus);
+    }
+
+    handleAuthClick(event) {
+        gapi.auth2.getAuthInstance().signIn();
+    }
+
+    handleSignoutClick(event) {
+        gapi.auth2.getAuthInstance().signOut();
     }
 }
 
-export default LoadGoogleAPI
+export default ApiGoogle

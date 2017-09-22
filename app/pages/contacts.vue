@@ -5,7 +5,7 @@
             <div class="subheading">{{ description }}</div>
         </div>
         <v-layout column>
-            <v-flex xs12 sm8 offset-sm2>
+            <v-flex xs12 sm10 offset-sm1>
                 <v-container fluid grid-list-md>
                     <v-layout row wrap>
                         <v-flex xs12 sm6>

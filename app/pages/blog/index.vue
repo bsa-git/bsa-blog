@@ -5,7 +5,7 @@
             <div class="subheading">{{ description }}</div>
         </div>
         <v-layout row>
-            <v-flex xs12 sm6 offset-sm3>
+            <v-flex xs12 sm10 offset-sm1>
                 <v-card :class="[theme.base,  'darken-2']" dark>
                     <v-toolbar :class="[theme.base,  'darken-4']" dark>
                         <v-btn to="/" title="Главная" icon>
