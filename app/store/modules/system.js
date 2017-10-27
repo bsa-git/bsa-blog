@@ -1,13 +1,19 @@
 const state = {
+    config: null,
+    isClient: false,
+    isLocalhost: false,
+    apiGoogle: null,
+    auth: {
+        token: null,
+        user: null
+    },
     userAgent: null,
-    auth: null, // { email: 'my@test.com' } || NULL
     error: {
         statusCode: '',
         name: '',
         message: '',
         stack: ''
     },
-    config: {},
     theme: {
         current:{
             base: 'blue',
@@ -47,8 +53,20 @@ const state = {
 
 const mutations = {
 
-    SET_AUTH (state, auth) {
-        state.auth = auth
+    SET_IS_CLIENT (state, isClient) {
+        state.isClient = isClient
+    },
+    SET_IS_LOCALHOST (state, isLocalhost) {
+        state.isLocalhost = isLocalhost
+    },
+    SET_GOOGLE_API (state, apiGoogle) {
+        state.apiGoogle = apiGoogle
+    },
+    SET_USER (state, userData) {
+        state.auth.user = userData
+    },
+    SET_TOKEN (state, token) {
+        state.auth.token = token
     },
 
     SET_ERROR (state, error) {

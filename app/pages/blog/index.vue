@@ -43,7 +43,7 @@
 
 <script>
     import {mapGetters} from 'vuex'
-    import Pagination from '~/plugins/lib/pagination.class'
+    import Pagination from '~/plugins/lib/pagination/pagination.class'
     import blogPosts from '~/store/data/blog-posts'
 
     export default {

@@ -2,6 +2,13 @@
 const getSystem = function (state) {
     return state.system
 };
+const isClient = function (state) {
+    return state.system.isClient
+};
+
+const isLocalhost = function (state) {
+    return state.system.isLocalhost
+};
 // --- User Agent --- //
 const getUserAgent = function (state) {
     return state.system.userAgent
@@ -23,9 +30,6 @@ const getPersonalData = function (state) {
     return state.system.config.personal_data
 };
 
-const getConfigGapi = function (state) {
-    return state.system.config.gapi
-};
 // --- Error --- //
 const getError = function (state) {
     return state.system.error
@@ -35,12 +39,16 @@ const isError = function (state) {
     return  !!state.system.error.name
 };
 // --- Auth --- //
-const isAuthenticated = function (state) {
-    return  !!state.system.auth
+const getAuth = function (state) {
+    return state.system.auth
 };
 
-const getAuth = function (state) {
-    return  state.system.auth
+const isAuth = function (state) {
+    return !!state.system.auth.token
+};
+
+const getGapi = function (state) {
+    return state.system.apiGoogle
 };
 
 // --- Products --- //
@@ -63,16 +71,18 @@ const getLoadingProducts = function (state) {
 export default {
     // --- System --- //
     getSystem,
+    isClient,
+    isLocalhost,
     getUserAgent,
     getTheme,
     getThemeRegister,
     getConfig,
     getPersonalData,
-    getConfigGapi,
     getError,
     isError,
-    isAuthenticated,
+    isAuth,
     getAuth,
+    getGapi,
     // --- Products --- //
     getProducts,
     getProductsHeaders,

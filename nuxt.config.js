@@ -46,9 +46,9 @@ module.exports = {
             'qs', // Parser JSON/QUERY
             'cheerio',// Parser HTML/XML
             'express-useragent',// Get useragent info
-            '~plugins/lib/http.class', // Http class
-            '~plugins/lib/highlight.class', // Highlight class
-            '~plugins/lib/pagination.class', // Pagination class
+            '~plugins/lib/http/http.class', // Http class
+            '~plugins/lib/highlight/highlight.class', // Highlight class
+            '~plugins/lib/pagination/pagination.class', // Pagination class
         ],
         plugins: [
             new webpack.ProvidePlugin({
@@ -57,8 +57,8 @@ module.exports = {
         ]
     },
     plugins: [
-        '~plugins/vuetify.js',
-        // '~plugins/vee-validate.js',
+        '~plugins/vuetify/vuetify.js',
+        // '~plugins/validators/vee-validate.js',
     ],
     css: [
         {src: '~assets/style/vuetify.styl', lang: 'styl'},

@@ -44,7 +44,7 @@
 
 <script>
     import {mapGetters} from 'vuex'
-    import Pagination from '~/plugins/lib/pagination.class'
+    import Pagination from '~/plugins/lib/pagination/pagination.class'
     import portfolioProjects from '~/store/data/portfolio-projects'
 
     export default {

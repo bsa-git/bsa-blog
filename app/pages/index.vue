@@ -26,7 +26,7 @@
                 <br/>
                 <v-container fluid grid-list-md class="grey lighten-4">
                     <v-layout row wrap>
-                        <v-flex xs12 sm4 v-for="page in pages" :key="page.title">
+                        <v-flex xs12 md4 v-for="page in pages" :key="page.title">
                             <v-card>
                                 <v-toolbar :class="[ getColor(page.theme), 'darken-4' ]" dark>
                                     <v-toolbar-title>{{ page.title }}</v-toolbar-title>

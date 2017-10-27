@@ -5,13 +5,14 @@
             <v-toolbar-title>Передать сообщение</v-toolbar-title>
         </v-toolbar>
         <v-card-text class="body-2 secondary--text">
-            <blockquote>
-                Передайте сообщение (не более 120 символов) на мой электронный адрес. Электронный адрес можно посмотреть на панели справа.
+            <blockquote class="caution">
+                Для передачи сообщения используется сервис Google ( GMail ). Чтобы использовать этот сервис нужно иметь аккаунт на Google.
+                Если вы еще не имеете аккаунта, то его можно получить <a href="https://www.google.com/accounts" target="_blank">здесь</a>.
             </blockquote>
         </v-card-text>
         <!-- EMail Form  -->
-        <form id="form-1" name="form-1" :action="params.url" method="post"
-              v-on:submit.prevent="submit('form-1')">
+        <form id="form-1" name="form-1" method="post"
+              v-on:submit.prevent="submit">
             <v-card-text>
                 <v-layout row>
                     <v-flex xs4>
@@ -74,51 +75,26 @@
             <v-divider></v-divider>
             <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn type="submit" dark>Передать</v-btn>
+                <v-btn type="submit" v-show="!disabled" dark>Передать</v-btn>
                 <v-btn type="reset" flat light @click.native="clearErrors">Очистить</v-btn>
             </v-card-actions>
         </form>
-        <!--Add buttons to initiate auth sequence and sign out-->
-        <div class="ma-3">
-            <!--
-            <button id="authorize-button" style="display: none;">Authorize</button>
-            <button id="signout-button" style="display: none;">Sign Out</button>
-
-            <div id="content"></div>
-
-            -->
-
-            <v-btn v-if="isSignedIn" @click.native="apiGoogle.handleSignoutClick" dark>Sign Out</v-btn>
-            <v-btn v-else @click.native="apiGoogle.handleAuthClick" dark>Authorize</v-btn>
-
-            <div>{{ myName }}</div>
-        </div>
-
-    </v-card>
+           </v-card>
 </template>
 
 <script>
     import {mapGetters} from 'vuex'
     import {Validator} from 'vee-validate';
-    import axios from 'axios'
-    import qs from 'qs'
-    import cheerio from 'cheerio'
-
-    import configGapi from '~/plugins/lib/gapi/auth.json'
-    import ApiGoogle from '~/plugins/lib/gapi/gapi.class'
-
+    import GMail from '~/plugins/lib/google/gmail.class'
 
     export default {
         validator: null,
         props: [
-            'theme',
-            'params'
+            'theme'
         ],
         data() {
             return {
-                apiGoogle: null,
-                isSignedIn: false,
-                myName: '',
+                disabled: false,
                 password: '',
                 email: '',
                 senderName: '',
@@ -129,43 +105,12 @@
         created: function () {
             // Ini validator
             this.iniValidator();
-            // Check error
-            if (this.isError) {
-                this.$emit('onErrLogin', {errors: [this.storeError.message]})
-            }
-            // Check authenticated
-            if (this.isAuthenticated) {
-                this.$emit('onAuthenticated', this.auth)
-            }
-            // Create apiGoogle data
-            const options = {
-                apiKey: this.configGapi.apiKey,
-                clientId: this.configGapi.clientId,
-                discoveryDocs: this.configGapi.services.people.discoveryDocs,
-                scope: this.configGapi.services.people.scope
-            };
-            this.apiGoogle = new ApiGoogle(options);
-        },
-        mounted: function () {
-            this.$nextTick(function () {
-                // Load/Init Google API
-                this.apiGoogle.loadGoogleAPI()
-                    .then(() => {
-                        return this.apiGoogle.init();
-                    })
-                    .then(() => {
-                        this.updateSigninStatus(this.apiGoogle.isSignedIn());
-                        this.apiGoogle.listenSignedIn(this.updateSigninStatus.bind(this));
-                    })
-            })
         },
         computed: {
             ...mapGetters({
-                isError: 'isError',
-                storeError: 'getError',
-                isAuthenticated: 'isAuthenticated',
-                auth: 'getAuth',
-                configGapi: 'getConfigGapi'
+                config: 'getConfig',
+                apiGoogle: 'getGapi',
+                isAuth: 'isAuth'
             })
         },
         watch: {
@@ -180,25 +125,6 @@
             }
         },
         methods: {
-            updateSigninStatus: function (isSignedIn) {
-                this.isSignedIn = isSignedIn;
-                if (isSignedIn) {
-                    this.makeApiCall();
-                }
-            },
-            makeApiCall: function () {
-                const self = this;
-                gapi.client.people.people.get({
-                    'resourceName': 'people/me',
-                    'requestMask.includeField': 'person.names'
-                }).then((resp) => {
-                    const name = resp.result.names[0].givenName;
-                    self.myName = 'Hello, ' + name + '!'
-                }, (error) => {
-                    console.log('Error gapi.client.people.people.get: ', error);
-                    alert(error)
-                });
-            },
             iniValidator: function () {
                 this.validator = new Validator({
                     senderName: 'required|alpha_spaces',
@@ -220,19 +146,6 @@
                 this.senderName = '';
                 this.message = '';
             },
-            submit: function (name) {
-                const self = this;
-                let formData;
-                //-----------------
-                this.validateForm().then(result => {
-                    if (result) {
-                    } else {
-                        this.$emit('onErrLogin', {errors: this.errors.all()})
-                    }
-                }).catch(() => {
-                    alert('Correct them errors!')
-                })
-            },
             vSenderName: function () {
                 if (this.errors.has('senderName')) {
                     return this.errors.first('senderName')
@@ -252,6 +165,99 @@
                     return this.errors.first('message')
                 } else {
                     return true
+                }
+            },
+            signIn: function () {
+                const self = this
+                return new Promise(function (resolve, reject) {
+                    self.apiGoogle.signIn(()=>{
+                        const userInfo = self.apiGoogle.getCurrentUserInfo()
+                        // Save to vuex
+                        self.$store.commit('SET_TOKEN', userInfo.token)
+                        self.$store.commit('SET_USER', userInfo)
+
+                        if (self.config.debug) {
+                            console.log('CurrentUser.info: ', userInfo)
+                        }
+                        resolve()
+                    }, (error)=>{
+                        console.log('GOOGLE SERVER - SIGN-IN ERROR', error)
+                        reject(error)
+                    })
+                })
+            },
+            submit: function () {
+                this.validateForm()
+                    .then(result => {
+                        if (result) {
+                            if (this.config.debug) {
+                                console.log('email.validateForm - OK')
+                            }
+                            if(this.isAuth){
+                                this.sendEmail()
+                            }else {
+                                this.signIn()
+                                    .then(()=>{
+                                        this.sendEmail()
+                                    })
+                            }
+                        } else {
+                            if (this.config.debug) {
+                                console.log('email.validateForm - Error: ', this.errors.all())
+                            }
+                            this.$emit('onErrLogin', {errors: this.errors.all()})
+                        }
+                    })
+                    .catch((ex) => {
+                        console.log('email.validateForm - Catch: ', ex)
+                        alert('Correct them errors!')
+                    })
+            },
+            sendEmail: function () {
+                this.disabled = true
+                this.sendMessage(
+                    {
+                        'To': this.email,
+                        'Subject': `Request for my resume from the employer: ${this.senderName}`
+                    },
+                    this.message,
+                    this.composeTidy
+                )
+                return false
+            },
+            composeTidy: function () {
+                const self = this
+                if (this.config.debug) {
+                    console.log('SendEmail - OK: ', `toEmail="${this.email}"; `, `fromName="${this.senderName}"; `, `textEmail="${this.message}";`)
+                }
+                this.disabled = false
+
+                this.clearErrors()
+                window.setTimeout(function () {
+                    self.clearErrors()
+                }, 500)
+            },
+            sendMessage: function (objHeaders, message, callback) {
+                try {
+                    let email = ''
+
+                    _.forEach(objHeaders, function (value, key) {
+                        email += `${key}: ${value}` + '\r\n'
+                    })
+
+                    email += '\r\n' + message
+                    // const rawEmail = window.btoa(email).replace(/\+/g, '-').replace(/\//g, '_')
+                    const base64EncodedEmail =  GMail.b64EncodeUTF8(email) // Base64.encodeURI(email)
+                    const sendRequest = window.gapi.client.gmail.users.messages.send({
+                        'userId': 'me',
+                        'resource': {
+                            'raw': base64EncodedEmail
+                        }
+                    })
+                    sendRequest.execute(callback)
+                } catch (e) {
+                    this.$store.commit('SET_ERROR', e)
+                    this.$router.replace('/error')
                 }
             }
         }

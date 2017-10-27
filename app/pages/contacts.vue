@@ -5,16 +5,15 @@
             <div class="subheading">{{ description }}</div>
         </div>
         <v-layout column>
-            <v-flex xs12 sm10 offset-sm1>
+            <v-flex xs12 md10 offset-md1>
                 <v-container fluid grid-list-md>
                     <v-layout row wrap>
-                        <v-flex xs12 sm6>
+                        <v-flex xs12 md6>
                             <contacts-email
                                     :theme="theme"
-                                    :params="emailParams"
                             ></contacts-email>
                         </v-flex>
-                        <v-flex xs12 sm5 offset-sm1>
+                        <v-flex xs12 md5 offset-md1>
                             <contacts-info
                                     :theme="theme"
                                     :info="info.contact"
@@ -40,13 +39,7 @@
         data() {
             return {
                 title: 'Контакты',
-                description: 'Связаться со мной',
-                emailParams: {
-                    url: '/api/login', // /components/forms
-                    ajax: true,
-                    reqData: 'json', // form
-                    resData: 'html' // json
-                }
+                description: 'Связаться со мной'
             }
         },
         head() {
@@ -67,6 +60,7 @@
         },
         computed: {
             ...mapGetters({
+                config: 'getConfig',
                 theme: 'getTheme',
                 info: 'getPersonalData'
             })

@@ -6,22 +6,37 @@ export default {
         apiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
         clientId: 'xxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com',
         services: {
-            people: {
-                discoveryDocs: [
-                    'https://people.googleapis.com/$discovery/rest?version=v1'
-                ],
-                scope: [
-                    'profile'
-                ]
+            auth: {
+                test: {
+                    token: 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjNmN2RjZjY2YjUwZDZiZGExMTgwYjcwNjdlYzhhZTlhNDhjYzU2YTQifQ...',
+                    user: {
+                        id: '12345678901234567890',
+                        fullName: 'Molly King',
+                        givenName: 'Molly',
+                        familyName: 'King',
+                        imageURL: 'https://test.com/images/user.jpg',
+                        email: 'user@test.com'
+                    }
+                }
             },
             gmail: {
                 discoveryDocs: [
                     'https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest'
                 ],
-                scope: [
-                    'https://www.googleapis.com/auth/gmail.readonly',
-                    'https://www.googleapis.com/auth/gmail.send'
-                ]
+                scopes: {
+                    main: [
+                        'https://mail.google.com/'
+                    ],
+                    modify: [
+                        'https://www.googleapis.com/auth/gmail.modify'
+                    ],
+                    compose: [
+                        'https://www.googleapis.com/auth/gmail.compose'
+                    ],
+                    send: [
+                        'https://www.googleapis.com/auth/gmail.send'
+                    ]
+                }
             }
         }
     },

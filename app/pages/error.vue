@@ -38,7 +38,7 @@
 
 <script>
     import {mapGetters} from 'vuex'
-    import HttpBox from '~/plugins/lib/http.class'
+    import HttpBox from '~/plugins/lib/http/http.class'
     export default {
         head() {
             return {

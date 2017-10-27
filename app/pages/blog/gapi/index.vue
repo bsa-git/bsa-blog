@@ -197,7 +197,7 @@
 </template>
 
 <script>
-    import Highlight from '~/plugins/lib/highlight.class'
+    import Highlight from '~/plugins/lib/highlight/highlight.class'
     export default {
         data() {
             return {
