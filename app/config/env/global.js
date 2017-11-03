@@ -24,15 +24,6 @@ export default {
                     'https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest'
                 ],
                 scopes: {
-                    main: [
-                        'https://mail.google.com/'
-                    ],
-                    modify: [
-                        'https://www.googleapis.com/auth/gmail.modify'
-                    ],
-                    compose: [
-                        'https://www.googleapis.com/auth/gmail.compose'
-                    ],
                     send: [
                         'https://www.googleapis.com/auth/gmail.send'
                     ]
@@ -58,6 +49,9 @@ export default {
         designed_with: 'Sample Studio',
         designed_with_url: 'https://www.sample.com/iamgurdeeposahan',
         contact: {
+            fullName: 'Molly King',
+            givenName: 'Molly',
+            familyName: 'King',
             myImg: '/img/system/user_female.png',
             address: '795 Sample Ave, Suite 600',
             phonePersonal: '+01 234 567 890',

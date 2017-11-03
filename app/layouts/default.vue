@@ -95,7 +95,7 @@
                 this.$store.commit(types.SET_USERAGENT, userAgent);
                 // Set sign isClient for store
                 this.$store.commit('SET_IS_CLIENT', !this.$isServer);
-                // Set sign isStatic for store
+                // Set sign isLocalhost for store
                 if(!this.$isServer){
                     let host = window.location.host;
                     host = host.split(':')[0];
@@ -117,11 +117,11 @@
             ...mapGetters({
                 config: 'getConfig',
                 theme: 'getTheme'
-                //apiGoogle: 'getGapi'
             })
         },
         methods: {
             iniData: function () {
+                // Init UI
                 this.navLeft = this.config.ui.nav_left.value;
                 this.navLeftMini = this.config.ui.nav_left_mini.value;
                 this.navLeftClipped = this.config.ui.nav_left_clipped.value;
@@ -135,46 +135,6 @@
             modelNavRight: function (newValue) {
                 this.navRight = newValue
             }
-            /*
-            loadGoogleAPI: function () {
-                if (!this.$isServer && (this.apiGoogle === null)) {
-                    // Load/Init Google API
-                    const gmail = this.config.gapi.services.gmail;
-                    const discoveryDocs = _.concat(gmail.discoveryDocs);
-                    const scope = _.concat(
-                        gmail.scopes.send).join(' ');
-                    const params = {
-                        debug: this.config.debug,
-                        apiKey: this.config.gapi.apiKey,
-                        clientId: this.config.gapi.clientId,
-                        discoveryDocs: discoveryDocs,
-                        scope: scope
-                    };
-                    ApiGoogle.staticLoadGoogleAPI(params)
-                        .then((apiGoogle) => {
-                            if (this.config.debug) {
-                                console.log('ApiGoogle.staticLoadGoogleAPI - OK')
-                            }
-                            this.$store.commit('SET_GOOGLE_API', apiGoogle)
-                            // Load google mail API
-                            this.apiGoogle.loadGmailApi()
-                                .then(() => {
-                                    if (this.config.debug) {
-                                        console.log('apiGoogle.loadGmailApi - OK')
-                                    }
-                                    // Synchronization of the real state of signed in with Google
-                                    // with the internal state of the signed in in store.
-                                    if (this.apiGoogle.isSignedIn() !== this.isAuth) {
-                                        const userInfo = this.apiGoogle.getCurrentUserInfo();
-                                        // Save to vuex
-                                        this.$store.commit('SET_TOKEN', userInfo.token);
-                                        this.$store.commit('SET_USER', userInfo)
-                                    }
-                                })
-                        })
-                }
-            }
-            */
         }
     }
 </script>

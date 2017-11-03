@@ -45,7 +45,7 @@ module.exports = {
             'axios',
             'qs', // Parser JSON/QUERY
             'cheerio',// Parser HTML/XML
-            'express-useragent',// Get useragent info
+            'express-useragent',// UserAgent info
             '~plugins/lib/http/http.class', // Http class
             '~plugins/lib/highlight/highlight.class', // Highlight class
             '~plugins/lib/pagination/pagination.class', // Pagination class

@@ -40,6 +40,9 @@ export default function (store, isClient, router) {
                                 // Save to vuex
                                 store.commit(types.SET_TOKEN, userInfo.token);
                                 store.commit(types.SET_USER, userInfo)
+                                if (config.debug) {
+                                    console.log('store.setUserAuth - OK')
+                                }
                             }
                         })
                 })

@@ -6,8 +6,11 @@
         </v-toolbar>
         <v-card-text class="body-2 secondary--text">
             <blockquote class="caution">
-                Для передачи сообщения используется сервис Google ( GMail ). Чтобы использовать этот сервис нужно иметь аккаунт на Google.
-                Если вы еще не имеете аккаунта, то его можно получить <a href="https://www.google.com/accounts" target="_blank">здесь</a>.
+                Для передачи сообщения используется сервис Google ( <a href="https://mail.google.com" target="_blank">GMail</a>
+                ).
+                Чтобы использовать этот сервис нужно иметь аккаунт на Google.
+                Если вы еще не имеете аккаунта, то его можно получить <a href="https://www.google.com/accounts"
+                                                                         target="_blank">здесь</a>.
             </blockquote>
         </v-card-text>
         <!-- EMail Form  -->
@@ -79,31 +82,36 @@
                 <v-btn type="reset" flat light @click.native="clearErrors">Очистить</v-btn>
             </v-card-actions>
         </form>
-           </v-card>
+    </v-card>
 </template>
 
 <script>
     import {mapGetters} from 'vuex'
     import {Validator} from 'vee-validate';
+    import ruLocale from 'vee-validate/dist/locale/ru';
     import GMail from '~/plugins/lib/google/gmail.class'
 
     export default {
-        validator: null,
+        // validator: null,
         props: [
-            'theme'
+            'theme',
+            'propSenderName',
+            'propEmail',
+            'propMessage',
+            'propValidEmails'
         ],
         data() {
             return {
                 disabled: false,
-                password: '',
                 email: '',
                 senderName: '',
                 message: '',
-                errors: null
+                errors: null,
+                validator: null
             }
         },
         created: function () {
-            // Ini validator
+            // Init validator
             this.iniValidator();
         },
         computed: {
@@ -114,6 +122,15 @@
             })
         },
         watch: {
+            propSenderName(value) {
+                this.senderName = value
+            },
+            propEmail(value) {
+                this.email = value
+            },
+            propMessage(value) {
+                this.message = value
+            },
             senderName(value) {
                 this.validator.validate('senderName', value);
             },
@@ -126,11 +143,21 @@
         },
         methods: {
             iniValidator: function () {
+                // Add dictionary
+                const dictionary = {
+                    ru: { messages: ruLocale.messages, attributes: ruLocale.attributes }
+                }
+                // Update dictionary
+                Validator.updateDictionary(dictionary);
+                // Set locale
+                Validator.setLocale('ru');
+                // Create Validator object
                 this.validator = new Validator({
                     senderName: 'required|alpha_spaces',
-                    email: 'required|email',
+                    email: `required|email|in:${this.propValidEmails}`,
                     message: 'required|max:120'
                 });
+                // Set errors
                 this.$set(this, 'errors', this.validator.errors);
             },
             validateForm() {
@@ -170,7 +197,7 @@
             signIn: function () {
                 const self = this
                 return new Promise(function (resolve, reject) {
-                    self.apiGoogle.signIn(()=>{
+                    self.apiGoogle.signIn(() => {
                         const userInfo = self.apiGoogle.getCurrentUserInfo()
                         // Save to vuex
                         self.$store.commit('SET_TOKEN', userInfo.token)
@@ -180,7 +207,7 @@
                             console.log('CurrentUser.info: ', userInfo)
                         }
                         resolve()
-                    }, (error)=>{
+                    }, (error) => {
                         console.log('GOOGLE SERVER - SIGN-IN ERROR', error)
                         reject(error)
                     })
@@ -193,72 +220,52 @@
                             if (this.config.debug) {
                                 console.log('email.validateForm - OK')
                             }
-                            if(this.isAuth){
+                            if (this.isAuth) {
                                 this.sendEmail()
-                            }else {
+                            } else {
                                 this.signIn()
-                                    .then(()=>{
+                                    .then(() => {
                                         this.sendEmail()
                                     })
                             }
                         } else {
-                            if (this.config.debug) {
-                                console.log('email.validateForm - Error: ', this.errors.all())
-                            }
-                            this.$emit('onErrLogin', {errors: this.errors.all()})
+                            console.log('email.validateForm - Error: ', this.errors.all())
                         }
                     })
                     .catch((ex) => {
                         console.log('email.validateForm - Catch: ', ex)
-                        alert('Correct them errors!')
+                        alert('Email validateForm - Catch: Correct them errors!')
                     })
             },
             sendEmail: function () {
-                this.disabled = true
-                this.sendMessage(
-                    {
-                        'To': this.email,
-                        'Subject': `Request for my resume from the employer: ${this.senderName}`
-                    },
-                    this.message,
-                    this.composeTidy
-                )
-                return false
+                const {transliter} = require('transliter')
+                try {
+                    this.disabled = true
+                    const gmail = new GMail({
+                        to: this.email,
+                        subject: 'Request for my resume',
+                        message: `<h4><i>Отправитель: ${this.senderName}</i></h4><h3>Сообщение:</h3><p><strong>${this.message}</strong></p>`,
+                        callback: this.composeTidy
+                    })
+                    gmail.send()
+                } catch (e) {
+                    this.$store.commit('SET_ERROR', e)
+                    this.$router.replace('/error')
+                }
             },
             composeTidy: function () {
                 const self = this
                 if (this.config.debug) {
                     console.log('SendEmail - OK: ', `toEmail="${this.email}"; `, `fromName="${this.senderName}"; `, `textEmail="${this.message}";`)
                 }
-                this.disabled = false
 
+                this.disabled = false
                 this.clearErrors()
                 window.setTimeout(function () {
                     self.clearErrors()
+                    // Show message -> SendEmail - OK
+                    self.$emit('onSendEmailSuccess')
                 }, 500)
-            },
-            sendMessage: function (objHeaders, message, callback) {
-                try {
-                    let email = ''
-
-                    _.forEach(objHeaders, function (value, key) {
-                        email += `${key}: ${value}` + '\r\n'
-                    })
-
-                    email += '\r\n' + message
-                    // const rawEmail = window.btoa(email).replace(/\+/g, '-').replace(/\//g, '_')
-                    const base64EncodedEmail =  GMail.b64EncodeUTF8(email) // Base64.encodeURI(email)
-                    const sendRequest = window.gapi.client.gmail.users.messages.send({
-                        'userId': 'me',
-                        'resource': {
-                            'raw': base64EncodedEmail
-                        }
-                    })
-                    sendRequest.execute(callback)
-                } catch (e) {
-                    this.$store.commit('SET_ERROR', e)
-                    this.$router.replace('/error')
-                }
             }
         }
     }

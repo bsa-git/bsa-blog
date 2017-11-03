@@ -1,32 +1,53 @@
- import  TextCoderLite  from '~/plugins/lib/google/textCoderLite.class.js'
+import CoderMail from '~/plugins/lib/google/coder-mail.class'
 
 class GMail {
+
+    /**
+     * Constructor
+     * @param options
+     * etc. {
+     * to: my@test.com,
+     * subject: Request for my resume from the employer,
+     * message: 'My Message!',
+     * callback: function () {
+            ....
+        }
+     * }
+     */
     constructor(options) {
-        const _options = options ? options : {};
+        this._options = options ? options : {};
     }
 
-    static b64EncodeUnicode(str) {
-        // first we use encodeURIComponent to get percent-encoded UTF-8,
-        // then we convert the percent encodings into raw bytes which
-        // can be fed into btoa.
-        return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
-            function toSolidBytes(match, p1) {
-                return String.fromCharCode('0x' + p1);
-            }));
-    }
+    /**
+     * Send email
+     */
+    send () {
+        try {
 
-    static b64DecodeUnicode(str) {
-        // Going backwards: from bytestream, to percent-encoding, to original string.
-        return decodeURIComponent(atob(str).split('').map(function (c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
-    }
+            const headers = {
+                'To': this._options.to,
+                'Subject': this._options.subject,
+                'Content-Type': 'text/html; charset="UTF-8"'
+            }
 
-    static b64EncodeUTF8(str) {
-        const base64js = require('base64-js')
-        const encoded = new TextCoderLite('utf-8').encode(str);
-        const b64Encoded = base64js.fromByteArray(encoded);
-        return b64Encoded;
+            let email = ''
+
+            _.forEach(headers, function (value, key) {
+                email += `${key}: ${value}` + '\r\n'
+            })
+
+            email += '\r\n' + this._options.message
+            const base64EncodedEmail = new CoderMail('utf-8').b64UrlEncodeUTF8(email)
+            const sendRequest = window.gapi.client.gmail.users.messages.send({
+                'userId': 'me',
+                'resource': {
+                    'raw': base64EncodedEmail
+                }
+            })
+            sendRequest.execute(this._options.callback)
+        } catch (e) {
+            throw e
+        }
     }
 }
 

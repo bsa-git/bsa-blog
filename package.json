@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "babel-polyfill": "^6.23.0",
+    "base64-js": "^1.2.1",
     "cheerio": "^1.0.0-rc.2",
     "express-useragent": "^1.0.7",
     "highlight.js": "^9.12.0",
