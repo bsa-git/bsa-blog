@@ -92,7 +92,6 @@
     import GMail from '~/plugins/lib/google/gmail.class'
 
     export default {
-        // validator: null,
         props: [
             'theme',
             'propSenderName',
@@ -238,16 +237,16 @@
                     })
             },
             sendEmail: function () {
-                const {transliter} = require('transliter')
                 try {
                     this.disabled = true
-                    const gmail = new GMail({
+                    const params = {
+                        userId: 'me',
                         to: this.email,
                         subject: 'Request for my resume',
                         message: `<h4><i>Отправитель: ${this.senderName}</i></h4><h3>Сообщение:</h3><p><strong>${this.message}</strong></p>`,
                         callback: this.composeTidy
-                    })
-                    gmail.send()
+                    }
+                    new GMail().send(params)
                 } catch (e) {
                     this.$store.commit('SET_ERROR', e)
                     this.$router.replace('/error')

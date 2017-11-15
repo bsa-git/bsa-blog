@@ -22,7 +22,7 @@
                             </v-list-tile-title>
                         </v-list-tile-content>
                         <v-list-tile-action>
-                            <v-btn icon router to="/">
+                            <v-btn icon router to="/" title="Главная">
                                 <v-icon>home</v-icon>
                             </v-btn>
                         </v-list-tile-action>
@@ -30,7 +30,7 @@
                 </v-list>
             </v-toolbar>
             <v-divider></v-divider>
-            <template v-for="(item, i) in items">
+            <template v-for="item in items">
                 <v-divider v-if="item.divider"></v-divider>
                 <v-subheader v-if="item.header" v-text="item.header"></v-subheader>
                 <v-list-group v-if="item.children && !miniVariant">
@@ -45,18 +45,21 @@
                             <v-icon>keyboard_arrow_down</v-icon>
                         </v-list-tile-action>
                     </v-list-tile>
-                    <v-list-tile v-for="(child, i) in item.children" :key="i"
-                                 router
-                                 :to="child.to"
-                    >
-                        <v-list-tile-content>
-                            <v-list-tile-title>{{ child.title }}</v-list-tile-title>
-                        </v-list-tile-content>
-                        <v-list-tile-action v-if="child.icon">
-                            <v-icon>{{ child.icon }}</v-icon>
-                        </v-list-tile-action>
-                    </v-list-tile>
-
+                    <template v-for="child in item.children">
+                        <v-subheader v-if="child.header" v-text="child.header"></v-subheader>
+                        <v-divider v-else-if="child.divider" v-bind:inset="child.inset"></v-divider>
+                        <v-list-tile v-else
+                                router
+                                :to="child.to"
+                        >
+                            <v-list-tile-content>
+                                <v-list-tile-title>{{ child.title }}</v-list-tile-title>
+                            </v-list-tile-content>
+                            <v-list-tile-action v-if="child.icon">
+                                <v-icon>{{ child.icon }}</v-icon>
+                            </v-list-tile-action>
+                        </v-list-tile>
+                    </template>
                 </v-list-group>
                 <v-list-tile v-else
                              router
@@ -94,43 +97,28 @@
                 items: [
                     {icon: 'apps', title: 'Главная', to: '/'},
                     {icon: 'contacts', title: 'Об авторе', to: '/about'},
-                    {icon: 'library_books', title: 'Блог', to: '/blog/'},
+                    {icon: 'library_books', title: 'Блог', to: '/blog/list'},
                     {
                         action: 'shop',
                         title: 'Портфолио',
                         children: [
-                            {icon: 'filter_none', title: 'Главная', to: '/portfolio/'},
-//                            {icon: 'alarm_add', title: 'Error-404', to: '/warnings/emit-error'},
-//                            {icon: 'alarm_on', title: 'Error-500', to: '/warnings/emit-error-fetch'},
-//                            {icon: 'build', title: 'Maintenance', to: '/warnings/maintenance'}
+                            {icon: 'filter_none', title: 'Перечень работ', to: '/portfolio/list'},
+                            { divider: true, inset: true },
+                            { header: 'Google API' },
+                            {icon: 'wc', title: 'Gapi-People', to: '/portfolio/gapi/people'},
+                            {icon: 'mail_outline', title: 'Gapi-Email', to: '/portfolio/gapi/email'},
+                            {icon: 'more', title: 'Gapi-Examples', to: '/portfolio/gapi/examples'}
                         ]
                     },
-//                    {
-//                        action: 'message',
-//                        title: 'Темы',
-//                        children: [
-//                            {icon: 'list', title: 'Lists', to: '/components/lists'},
-//                            {icon: 'payment', title: 'Cards', to: '/components/cards'},
-//                            {icon: 'recent_actors', title: 'Carousels', to: '/components/carousels'},
-//                            {icon: 'view_day', title: 'Expansion panels', to: '/components/expansion-panels'},
-//                            {icon: 'message', title: 'Dialogs', to: '/components/dialogs'},
-//                            {icon: 'tab', title: 'Tabs', to: '/components/tabs'},
-//                            {icon: 'directions_walk', title: 'Steppers', to: '/components/steppers'},
-//                            {icon: 'view_module', title: 'Data tables', to: '/components/data-tables'},
-//                            {icon: 'today', title: 'Date/Time Pickers', to: '/components/pickers'},
-//                            {icon: 'format_indent_increase', title: 'Text fields', to: '/components/text-fields'},
-//                            {icon: 'assignment', title: 'Forms', to: '/components/forms'}
-//                        ]
-//                    },
                     {
                         divider: true,
                         header: 'Темы',
                         action: 'message',
                         title: 'Google Client API',
                         children: [
-                            {icon: 'filter_none', title: 'Введение', to: '/blog/gapi/'},
-                            {icon: 'mail_outline', title: 'Email', to: '/blog/gapi/email'},
-                            {icon: 'location_on', title: 'Maps', to: '/blog/gapi/maps'},
+                            {icon: 'filter_none', title: 'Обзор', to: '/blog/gapi/overview'},
+                            {icon: 'contact_mail', title: 'Gmail-Send', to: '/blog/gapi/gmail-send'},
+                            {icon: 'mail_outline', title: 'Gmail-Inbox', to: '/blog/gapi/gmail-inbox'}
                         ]
                     }
                 ]

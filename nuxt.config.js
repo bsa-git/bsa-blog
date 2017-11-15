@@ -42,13 +42,14 @@ module.exports = {
             'vuetify',
             'vee-validate',
             'lodash',
-            'axios',
-            'qs', // Parser JSON/QUERY
-            'cheerio',// Parser HTML/XML
             'express-useragent',// UserAgent info
             '~plugins/lib/http/http.class', // Http class
             '~plugins/lib/highlight/highlight.class', // Highlight class
             '~plugins/lib/pagination/pagination.class', // Pagination class
+            '~plugins/lib/google/gapi.class', // Google API class
+            '~plugins/lib/google/gapi-load', // Load google API
+            '~plugins/lib/google/gmail.class', // GMail class
+            '~plugins/lib/google/coder.class', // Mail coder class
         ],
         plugins: [
             new webpack.ProvidePlugin({

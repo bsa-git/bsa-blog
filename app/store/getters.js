@@ -51,23 +51,6 @@ const getGapi = function (state) {
     return state.system.apiGoogle
 };
 
-// --- Products --- //
-const getProducts = function (state) {
-    return state.products.items
-};
-
-const getProductsHeaders = function (state) {
-    return state.products.headers
-};
-
-const getTotalProducts = function (state) {
-    return state.products.totalItems
-};
-
-const getLoadingProducts = function (state) {
-    return state.products.loading
-};
-
 export default {
     // --- System --- //
     getSystem,
@@ -82,10 +65,5 @@ export default {
     isError,
     isAuth,
     getAuth,
-    getGapi,
-    // --- Products --- //
-    getProducts,
-    getProductsHeaders,
-    getTotalProducts,
-    getLoadingProducts
+    getGapi
 }

@@ -8,7 +8,6 @@ import actions from '~/store/actions'
 import getters from '~/store/getters'
 // Modules
 import system from '~/store/modules/system'
-import products from '~/store/modules/products'
 
 Vue.use(Vuex)
 
@@ -17,8 +16,7 @@ const store = new Vuex.Store({
     actions: actions,
     getters: getters,
     modules: {
-        system,
-        products
+        system
     }
 });
 
