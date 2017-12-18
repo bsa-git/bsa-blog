@@ -107,7 +107,14 @@
                             { header: 'Google API' },
                             {icon: 'wc', title: 'Gapi-People', to: '/portfolio/gapi/people'},
                             {icon: 'mail_outline', title: 'Gapi-Email', to: '/portfolio/gapi/email'},
-                            {icon: 'more', title: 'Gapi-Examples', to: '/portfolio/gapi/examples'}
+                            {icon: 'more', title: 'Gapi-Examples', to: '/portfolio/gapi/examples'},
+                            { divider: true, inset: true },
+                            { header: 'Silex (PHP micro-framework)' },
+                            {icon: 'desktop_windows', title: 'Silex-MVC', to: '/portfolio/silex/mvc'},
+                            {icon: 'last_page', title: 'Silex-UBKI', to: '/portfolio/silex/ubki'},
+                            { divider: true, inset: true },
+                            { header: 'Zend (PHP framework)' },
+                            {icon: 'library_books', title: 'ZF-MyBlog', to: '/portfolio/zf/myblog'},
                         ]
                     },
                     {

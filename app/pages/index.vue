@@ -7,7 +7,8 @@
         <v-layout column>
             <v-flex xs12 sm10 offset-sm1>
                 <v-parallax src="/img/system/vbanner.jpg" class="text-xs-center">
-                    <h1 class="exotic--dark">BSA Lab.</h1>
+                    <br/>
+                    <h2 class="exotic--dark">BSA Lab.</h2>
                     <h5 class="exotic--dark ma-3">
                         Обучение программированию не может научить быть экспертом, также как и изучение кистей и красок не может превратить кого-либо в художника.</h5>
                     <div class="text-xs-right">
@@ -15,12 +16,17 @@
                             <small>&mdash; Eric S. Raymond</small>
                         </em>
                     </div>
-                    <div>
-                        <v-btn to="/contacts" class="orange--text" flat>Контакты...</v-btn>
-                        <v-btn href="https://github.com/bsa-git" class="orange--text" target="_blank" flat>
-                            Проекты на Git-Hub
-                        </v-btn>
-                    </div>
+                    <v-layout row-md column child-flex-md>
+                        <div>
+                            <v-btn to="/contacts" class="orange--text" flat>Контакты...</v-btn>
+                        </div>
+                        <div>
+                            <v-btn href="https://github.com/bsa-git" class="orange--text" target="_blank" flat>
+                                Проекты на Git-Hub
+                            </v-btn>
+                        </div>
+                    </v-layout>
+                    <br />
                 </v-parallax>
                 <br/>
                 <br/>

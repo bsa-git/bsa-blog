@@ -19,7 +19,7 @@
                         </p>
                         <p class="subheading">
                             <strong>
-                                Этот пример на <strong>GitHub</strong> можно посмотреть <a
+                                Этот проект на <strong>GitHub</strong> можно посмотреть <a
                                     href="https://github.com/bsa-git/gapi-examples" target="_blank">здесь</a>
                             </strong>
                         </p>
