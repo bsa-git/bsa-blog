@@ -9,7 +9,7 @@
                 Для передачи сообщения используется сервис Google ( <a href="https://mail.google.com" target="_blank">GMail</a>
                 ).
                 Чтобы использовать этот сервис нужно иметь аккаунт на Google.
-                Если вы еще не имеете аккаунта, то его можно получить <a href="https://www.google.com/accounts"
+                Если вы еще не имеете аккаунта, то его можно создать <a href="https://www.google.com/accounts"
                                                                          target="_blank">здесь</a>.
             </blockquote>
         </v-card-text>

@@ -43,6 +43,12 @@ export default {
             to: '/portfolio/zf/myblog',
             title: 'ZF-MyBlog',
             subtitle: "<span class='grey--text text--lighten-2'>Простое приложение</span> реализующее управление блогом, разработанное на базе «Zend Framework-1» ..."
+        },
+        {
+            icon: 'show_char',
+            to: '/portfolio/zf/asm',
+            title: 'ZF2-ASM',
+            subtitle: "<span class='grey--text text--lighten-2'>Простое приложение</span> реализующее сайт для отчетов и отображения данных в реальном времени, разработанное на базе «Zend Framework-2» ..."
         }
     ]
 }

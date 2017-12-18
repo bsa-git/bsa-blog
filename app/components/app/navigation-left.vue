@@ -115,6 +115,7 @@
                             { divider: true, inset: true },
                             { header: 'Zend (PHP framework)' },
                             {icon: 'library_books', title: 'ZF-MyBlog', to: '/portfolio/zf/myblog'},
+                            {icon: 'show_chart', title: 'ZF2-ASM', to: '/portfolio/zf/asm'},
                         ]
                     },
                     {

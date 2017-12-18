@@ -29,7 +29,7 @@
         </p>
         <p class="subheading">
             <strong>
-                Пример использования Gmail API можно посмотреть <a
+                Пример использования Gmail API на <strong>GitHub</strong> можно посмотреть <a
                     href="https://github.com/bsa-git/gapi-examples" target="_blank">здесь</a>
             </strong>
         </p>
