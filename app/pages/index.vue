@@ -6,11 +6,12 @@
         </div>
         <v-layout column>
             <v-flex xs12 sm10 offset-sm1>
-                <v-parallax src="/img/system/vbanner.jpg" class="text-xs-center">
+                <v-parallax src="/img/system/vbanner.jpg" class="text-xs-center pb-5">
                     <br/>
                     <h2 class="exotic--dark">BSA Lab.</h2>
                     <h5 class="exotic--dark ma-3">
-                        Обучение программированию не может научить быть экспертом, также как и изучение кистей и красок не может превратить кого-либо в художника.</h5>
+                        Обучение программированию не может научить быть экспертом, также как и изучение кистей и красок не может превратить кого-либо в художника.
+                    </h5>
                     <div class="text-xs-right">
                         <em>
                             <small>&mdash; Eric S. Raymond</small>
@@ -26,10 +27,9 @@
                             </v-btn>
                         </div>
                     </v-layout>
-                    <br />
                 </v-parallax>
-                <br/>
-                <br/>
+                <br />
+                <br />
                 <v-container fluid grid-list-md class="grey lighten-4">
                     <v-layout row wrap>
                         <v-flex xs12 md4 v-for="page in pages" :key="page.title">
@@ -54,6 +54,8 @@
                         </v-flex>
                     </v-layout>
                 </v-container>
+                <br />
+                <br />
             </v-flex>
         </v-layout>
     </div>

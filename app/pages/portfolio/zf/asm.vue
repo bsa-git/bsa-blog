@@ -48,11 +48,25 @@
                                 <a href="https://api.highcharts.com/highcharts/" target="_blank">API</a>
                             </dd>
                             <dd>
-                                <a href="https://www.highcharts.com/stock/demo" target="_blank">Demo</a>
+                                <a href="https://www.highcharts.com/stock/demo" target="_blank">Примеры</a>
                             </dd>
-                            <dt><strong>Swipebox - плагин jQuery для отображения фото</strong></dt>
+                            <dt><strong>Swipebox - плагин jQuery для отображения фото галереи</strong></dt>
                             <dd>
                                 <a href="http://brutaldesign.github.io/swipebox/" target="_blank">Документация</a>
+                            </dd>
+                            <dt><strong>TouchTouch - плагин jQuery для отображения фото галереи</strong></dt>
+                            <dd>
+                                <a href="https://tutorialzine.com/2012/04/mobile-touch-gallery" target="_blank">Документация</a>
+                            </dd>
+                            <dd>
+                                <a href="https://demo.tutorialzine.com/2012/04/mobile-touch-gallery/" target="_blank">Примеры</a>
+                            </dd>
+                            <dt><strong>FlexSlider 2 - плагин jQuery для отображения фото слайдов</strong></dt>
+                            <dd>
+                                <a href="https://ruseller.com/adds/adds2251/example/" target="_blank">Документация</a>
+                            </dd>
+                            <dd>
+                                <a href="http://flexslider.woothemes.com/index.html" target="_blank">Примеры</a>
                             </dd>
                         </dl>
                     </section>
@@ -65,11 +79,14 @@
                                 расширяется с помощью конфигурационных файлов, расположенных в <code>config/</code>;
                             </li>
                             <li>использует БД типа <strong>SqlLite</strong> <code>data/db/system.db</code>; </li>
-                            <li>для просмотра фото используется плагин для <strong>jQuery</strong> <a href="http://brutaldesign.github.io/swipebox/" target="_blank"> Swipebox</a>;</li>
                             <li>для просмотра видео используется плагин для <strong>jQuery</strong> <a href="https://code.google.com/archive/p/divbox/" target="_blank"> Divbox</a>;</li>
+                            <li>для просмотра фото галереи используется плагин для <strong>jQuery</strong> <a href="http://brutaldesign.github.io/swipebox/" target="_blank"> Swipebox</a>;</li>
+                            <li>для просмотра фото галереи используется плагин для <strong>jQuery</strong> <a href="https://tutorialzine.com/2012/04/mobile-touch-gallery" target="_blank"> TouchTouch</a>;</li>
+                            <li>для просмотра фото слайдов используется плагин для <strong>jQuery</strong> <a href="http://flexslider.woothemes.com/index.html" target="_blank"> FlexSlider 2</a>;</li>
                             <li>
                                 для отображения графиков используется <strong>JavaScript</strong> библиотека <a href="https://www.highcharts.com/products/highstock/" target="_blank">Highstock</a>;
                             </li>
+                            <li>реализована возможность печатать отчеты;</li>
                             <li>также добавлены плагины для работы с массивами, строками и др. <code>module/Application/src/Application/Service</code>;</li>
                         </ul>
                         <h2>Установка</h2>

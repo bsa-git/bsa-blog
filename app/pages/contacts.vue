@@ -30,6 +30,8 @@
                 </v-container>
             </v-flex>
         </v-layout>
+        <br />
+        <br />
         <contacts-snackbar
                 :snackbar="notification.show"
                 :text="notification.text"

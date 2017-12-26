@@ -122,7 +122,7 @@
                             <li>Для создания базы данных выполнить командный файл из консоли <code>app/Console/scripts/orm/schema_create.bat</code>,
                                 предварительно отредактировав пути к <code>php.exe</code> и к <code>app\Console\index.php</code>;
                             </li>
-                            <li>Сконфигурируйте веб сервер, что бы точка входа была <code>public/index.php</code>.</li>
+                            <li>Сконфигурируйте веб сервер, чтобы точка входа была <code>public/index.php</code>.</li>
                             <li>
                                 Установите, если необходимо, соответсвующие права на запись в <code>path/to/project/var</code>.
                             </li>

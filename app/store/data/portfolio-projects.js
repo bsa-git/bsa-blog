@@ -45,10 +45,24 @@ export default {
             subtitle: "<span class='grey--text text--lighten-2'>Простое приложение</span> реализующее управление блогом, разработанное на базе «Zend Framework-1» ..."
         },
         {
-            icon: 'show_char',
+            icon: 'show_chart',
             to: '/portfolio/zf/asm',
             title: 'ZF2-ASM',
             subtitle: "<span class='grey--text text--lighten-2'>Простое приложение</span> реализующее сайт для отчетов и отображения данных в реальном времени, разработанное на базе «Zend Framework-2» ..."
+        },
+        {divider: true, inset: false},
+        {header: 'Vue.js (JavaScript framework)'},
+        {
+            icon: 'more',
+            to: '/portfolio/vue/examples',
+            title: 'Vue.js Examples',
+            subtitle: "<span class='grey--text text--lighten-2'>Примеры Vue.js фреймворка</span> демонстрируются возможности работы ..."
+        },
+        {
+            icon: 'work',
+            to: '/portfolio/vue/business-light',
+            title: 'Vue-Business-Light',
+            subtitle: "<span class='grey--text text--lighten-2'>Сайт на базе Vue.js фреймворка</span> выполнен как реклама бизнес организации ..."
         }
     ]
 }

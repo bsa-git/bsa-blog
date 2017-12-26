@@ -23,6 +23,12 @@
                                     href="https://github.com/bsa-git/gapi-examples" target="_blank">здесь</a>
                             </strong>
                         </p>
+                        <p class="subheading">
+                            <strong>
+                                Демонстрацию этого проекта можно посмотреть <a
+                                    href="https://bsa-git.github.io/gapi-examples/" target="_blank">здесь</a>
+                            </strong>
+                        </p>
                     </section>
                     <section>
                         <h2>Ресурсы</h2>
