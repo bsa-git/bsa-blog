@@ -5,7 +5,7 @@
                 <div class="headline">{{ title }}</div>
                 <div class="subheading">{{ description }}</div>
             </div>
-            <p class="date-publication">2017-12-20</p>
+            <p class="date-publication">2017-12-28</p>
             <v-card class="blog-post">
                 <v-card-text>
                     <section>
@@ -14,42 +14,66 @@
                             Я использовал свободный шаблон <a
                                 href="https://graygrids.com/item/osahan-free-responsive-business-bootstrap-template/"
                                 target="_blank">Osahan – Free Responsive Business Bootstrap Template</a>,
-                            чтобы продемонстрировать работу замечательной библиотеки
-                            <a href="https://vuejs.org/v2/guide/index.html" target="_blank">Vue.js</a>.
+                            чтобы продемонстрировать работу фреймворка
+                            <a href="https://nuxtjs.org/guide" target="_blank">Nuxt</a>.
                         </p>
                         <p class="subheading">
                             <strong>
                                 Этот проект на <strong>GitHub</strong> можно посмотреть <a
-                                    href="https://github.com/bsa-git/vue-business-light" target="_blank">здесь</a>
+                                    href="https://github.com/bsa-git/vue-nuxt-static" target="_blank">здесь</a>
                             </strong>
                         </p>
                         <p class="subheading">
                             <strong>
                                 Демонстрацию этого проекта можно посмотреть <a
-                                    href="https://vue-business-light.firebaseapp.com/" target="_blank">здесь</a>
+                                    href="https://vue-nuxt-static.herokuapp.com/" target="_blank">здесь</a>
                             </strong>
                         </p>
                     </section>
                     <section>
-                        <h2>Обзор Vue.js фреймворка</h2>
+                        <h2>Обзор Nuxt фреймворка</h2>
                         <p>
-                            Vue (произносится /vjuː/, примерно как <strong>view</strong>) — это <strong>прогрессивный фреймворк</strong>
-                            для создания пользовательских интерфейсов. В отличие от фреймворков-монолитов,
-                            Vue создан пригодным для постепенного внедрения. Его ядро в первую очередь решает задачи уровня
-                            представления (view), что упрощает интеграцию с другими библиотеками и существующими проектами.
-                            С другой стороны, Vue полностью подходит и для создания сложных одностраничных приложений
-                            (SPA, Single-Page Applications), если использовать его совместно с
-                            <a href="single-file-components.html" target="_blank">современными инструментами</a> и
-                            <a href="https://github.com/vuejs/awesome-vue#components--libraries" target="_blank">дополнительными библиотеками</a>.
+                            Nuxt.js — это фреймворк для универсальных приложений на <a
+                                href="https://vuejs.org/v2/guide/index.html" target="_blank">Vue.js</a>.
                         </p>
                         <p>
-                            Если вы — опытный фронтенд-разработчик, и хотите узнать, чем Vue отличается от остальных
-                            библиотек или фреймворков, обратите внимание на <a href="comparison.html" target="_blank">сравнение с другими фреймворками</a>.
+                            Основной задачей этого фреймворка является <strong>рендеринг пользовательского интерфейса</strong>
+                            в условиях абстракции от клиент-серверной архитектуры.</p>
+                        <p>
+                            Цель разработки — создать фреймворк настолько гибкий, чтобы его можно было использовать и как основу, и как дополнение к уже существующим проектам на Node.js.</p>
+                        <p>
+                            Nuxt.js содержит широкие возможности конфигурации приложения, что позволяет сделать разработку лёгкой и приятной.</p>
+                        <p>Кроме того, предоставляется опция разработки: <em>nuxt generate</em>. С помощью неё можно <strong>статически генерировать</strong>
+                            приложения на Vue.js.
+                            На наш взгляд, эта опция может оказаться следующим большим шагом на пути разработки микросервисных веб-приложений.
                         </p>
+                        <p>
+                            Фреймворк Nuxt.js привносит множество возможностей в разработке веб-приложений, таких как: асинхронные данные, middleware, шаблоны и др.</p>
+                        <h3>Возможности</h3>
+                        <ul>
+                            <li>Написание Vue-файлов</li>
+                            <li>Автоматическое разделение кода</li>
+                            <li>Серверный рендеринг</li>
+                            <li>Мощная система маршрутизации с асинхронными данными</li>
+                            <li>Обслуживание статических файлов</li>
+                            <li>Транспиляция ES6/ES7</li>
+                            <li>Сборка и минимизация JS &amp; CSS</li>
+                            <li>Управление элементами в блоке head</li>
+                            <li>Горячая замена модулей при разработке</li>
+                            <li>Интеграция c ESLint</li>
+                            <li>Пре-процессоры: SASS, LESS, Stylus, и др.</li>
+                        </ul>
                     </section>
                     <section>
                         <h2>Ресурсы</h2>
                         <dl>
+                            <dt><strong>Nuxt (JavaScript framework)</strong></dt>
+                            <dd>
+                                <a href="https://nuxtjs.org/guide" target="_blank">Документация</a>
+                            </dd>
+                            <dd>
+                                <a href="https://github.com/nuxt" target="_blank">GitHub</a>
+                            </dd>
                             <dt><strong>Vue.js (JavaScript framework)</strong></dt>
                             <dd>
                                 <a href="http://vuejs.org/guide/" target="_blank">Документация</a>
@@ -65,14 +89,6 @@
                             </dd>
                             <dd>
                                 <a href="https://github.com/vuejs/awesome-vue#components--libraries" target="_blank">Components & Libraries</a>
-                            </dd>
-                            <dt><strong>Vuex is library for Vue.js applications</strong></dt>
-                            <dd>
-                                <a href="https://vuex.vuejs.org/en/" target="_blank">Документация</a>
-                            </dd>
-                            <dt><strong>Vue Router is library for Vue.js applications</strong></dt>
-                            <dd>
-                                <a href="https://router.vuejs.org/en/essentials/getting-started.html" target="_blank">Документация</a>
                             </dd>
                             <dt><strong>jQuery</strong></dt>
                             <dd><a href="http://learn.jquery.com/" target="_blank">Документация</a></dd>
@@ -101,10 +117,6 @@
                             <li>
                                 Используются HTML-шаблоны для создания представлений веб-приложений, которые состоят из различных частей.
                             </li>
-                            <li>Сборка модулей осуществляется по технологии Asynchronous module definition (AMD).
-                                Для обеспечения этой технологии используется библиотека <a href="http://requirejs.org/">RequireJS</a>
-                                которая является загрузчиком JavaScript файлов и модулей.
-                            </li>
                             <li>
                                 Используется маршрутизатор <a
                                     href="http://router.vuejs.org/en/" target="_blank">Vue-Router</a>
@@ -123,45 +135,82 @@
                     <section>
                         <h2>Установка приложения</h2>
                         <h3>Предварительные требования</h3>
-                        <a href="https://httpd.apache.org/download.cgi" target="_blank">Apache2</a>, <a
-                            href="http://nginx.org/en/" target="_blank">Nginx</a> веб сервер или похожие.
-                        <h3>Развертывание</h3>
                         <ol>
-                            <li>Клонировать или загрузить <a href="https://github.com/bsa-git/vue-business-light"
-                                                             target="_blank">vue-business-light</a>
-                                проект с GitHub.
+                            <li>
+                                <p>
+                                    Убедитесь в том, что у вас установлен <a href="https://nodejs.org/">NodeJS</a> и
+                                    <a href="https://www.npmjs.com/">npm</a>.
+                                </p>
                             </li>
-                            <li>Сконфигурировать веб сервер так чтобы входная точка была <code>/index.html</code>.</li>
-                            <li>Доступ к URL вашего проекта с помощью веб-браузера (пр. <a
-                                    href="http://vue-business-light/index.html">http://vue-business-light/index.html</a>).
+                            <li>
+                                <p>
+                                    Клонируйте или загрузите <a href="https://github.com/bsa-git/vue-nuxt-static">vue-nuxt-static</a>
+                                    проект с GitHub.
+                                </p>
+                            </li>
+                            <li>
+                                <p>Инсталируйте ваши зависимости</p>
                             </li>
                         </ol>
-                        <h3>Оптимизация</h3>
-                        <p>Чтобы оптимизировать, выполните:</p>
-                        <pre><code>node app/js/r.js -o build_require.js</code></pre>
+                        <pre><code class="bash">cd &lt;project-name&gt; npm install # Or yarn install</code></pre>
+                        <h3>Переменные окружения</h3>
                         <p>
-                            С помощью этой команды создается оптимизированная версия проекта в
-                            <strong>/public</strong> директории. Файл <code>main.js</code> будет оптимизирован для
-                            включения всех его зависимостей.
+                            Файл <code>env.js</code> должен находиться в корне проекта, если он отсутствует, то его
+                            нужно создать на основе примера файла <code>env.example.js</code>, иначе приложение будет
+                            выдавать ошибку. Файл <code>env.js</code> устанавливает переменные окружения.
                         </p>
+
+                        <h3>Запуск вашего проекта</h3>
+                        <h3>Development</h3>
+                        <pre><code class="bash">npm run dev</code></pre>
+                        <br />
                         <p>
-                            Большую информацию по оптимизации можно поосмотреть:
-                            <a href="http://requirejs.org/docs/optimization.html">здесь</a>
+                            Приложение будет запущено в режиме <strong>Разработки</strong> и будет выполнятся на
+                            <a href="http://localhost:3000">http://localhost:3000</a>
                         </p>
+                        <h3>Production</h3>
+                        <pre><code class="bash">
+npm run build
+npm start
+                        </code></pre>
                         <p>
-                            Большую информацию по использованию <code>requirejs</code> можно помотреть:
-                            <a href="http://requirejs.org/docs/api.html">здесь</a>
+                            Приложение будет запущено в <strong>Рабочем</strong> режиме и будет выполнятся на
+                            <a href="http://localhost:3000">http://localhost:3000</a>
+                        </p>
+                        <h3>Генерация статического проекта</h3>
+                        <pre><code class="bash">npm run generate</code></pre>
+                        <br />
+                        <p>
+                            При построении вашего приложения будет генерироваться HTML файл для каждого вашего роутера
+                            и сохраняться по соответствующему пути.
+                        </p>
+                        <p>Пример:</p>
+                        <pre><code class="bash">
+-| pages/
+----| about.vue
+----| index.vue
+                        </code></pre>
+                        <p>Будет сгенерировано:</p>
+                        <pre><code class="bash">
+-| dist/
+----| about/
+------| index.html
+----| index.html
+                        </code></pre>
+                        <p>
+                            Таким образом вы сможете размещать ваш статический проект на любом статическом хостинге.
                         </p>
                     </section>
                     <section>
                         <h2>Структура приложения</h2>
                         <p>
-                            <strong>Vue.js - Business Light</strong> проект имеет файловую структуру, показанную ниже см. пр.1.
+                            <strong>Nuxt - Business Light</strong>
+                            проект имеет файловую структуру, показанную ниже см. пр.1.
                         </p>
                         <kbd>пр.1</kbd>
                         <business-light-code1></business-light-code1>
                         <h3>Конфигурация</h3>
-                        <h5>env.js</h5>
+                        <h4>env.js</h4>
                         <p>
                             Файл <code>env.js</code> должен находиться в корне проекта, если он отсутствует, то его
                             нужно создать на основе примера файла <code>env.example.js</code>, иначе приложение будет
@@ -186,12 +235,8 @@
                         </p>
                         <kbd>пр.2</kbd>
                         <business-light-code2></business-light-code2>
-                        <h3>Точка входа <strong>main.js</strong></h3>
-                        <p>
-                            Точкой входа в приложение является файл <code>main.js</code>. В нем происходит конфигурация
-                            <code>requirejs</code>, настройка путей приложения с помощью библиотеки <code>Vue-Router</code>,
-                            создание самого приложения <code>App</code> см. пр.3.
-                        </p>
+                        <h4>nuxt.config.js</h4>
+                        <p>Файл nuxt.config.js содержит пользовательскую конфигурацию Nuxt.js см. пр.3. </p>
                         <kbd>пр.3</kbd>
                         <business-light-code3></business-light-code3>
                     </section>
@@ -203,9 +248,9 @@
 
 <script>
     import Highlight from '~/plugins/lib/highlight/highlight.class'
-    import BusinessLightCode1 from '~components/portfolio/vue/business-light/code-1.vue'
-    import BusinessLightCode2 from '~components/portfolio/vue/business-light/code-2.vue'
-    import BusinessLightCode3 from '~components/portfolio/vue/business-light/code-3.vue'
+    import BusinessLightCode1 from '~components/portfolio/nuxt/business-light/code-1.vue'
+    import BusinessLightCode2 from '~components/portfolio/nuxt/business-light/code-2.vue'
+    import BusinessLightCode3 from '~components/portfolio/nuxt/business-light/code-3.vue'
 
     export default {
         components: {
@@ -215,8 +260,8 @@
         },
         data() {
             return {
-                title: 'Vue.js - Business Light',
-                description: 'Рекламный сайт фирмы сделанный на базе Vue.js фреймворка.',
+                title: 'Nuxt - Business Light',
+                description: 'Рекламный сайт фирмы, сделанный на базе Nuxt фреймворка.',
             }
         },
         head() {

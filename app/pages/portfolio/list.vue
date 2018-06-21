@@ -35,7 +35,7 @@
                 </v-card>
             </v-flex>
         </v-layout>
-        <div id="portfolio-pagination" class="text-xs-center mt-5">
+        <div id="portfolio-pagination" class="text-xs-center ma-5">
             <v-pagination v-bind:length.number="pagination.totalPages()" v-model="page"
                           total-visible="3"></v-pagination>
         </div>

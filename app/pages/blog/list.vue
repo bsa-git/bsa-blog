@@ -35,7 +35,7 @@
                 </v-card>
             </v-flex>
         </v-layout>
-        <div id="blog-pagination" class="text-xs-center mt-5">
+        <div id="blog-pagination" class="text-xs-center ma-5">
             <v-pagination :length.number="pagination.totalPages()" v-model="page" :total-visible="pagination.itemsPerPage"></v-pagination>
         </div>
     </div>

@@ -53,16 +53,42 @@ export default {
         {divider: true, inset: false},
         {header: 'Vue.js (JavaScript framework)'},
         {
-            icon: 'more',
-            to: '/portfolio/vue/examples',
-            title: 'Vue.js Examples',
-            subtitle: "<span class='grey--text text--lighten-2'>Примеры Vue.js фреймворка</span> демонстрируются возможности работы ..."
+            icon: 'account_circle',
+            to: '/portfolio/vue/resume',
+            title: 'Vue-Resume',
+            subtitle: "<span class='grey--text text--lighten-2'>Сайт на базе Vue.js фреймворка</span> выполнен как резюме пользователя ..."
         },
         {
             icon: 'work',
             to: '/portfolio/vue/business-light',
             title: 'Vue-Business-Light',
             subtitle: "<span class='grey--text text--lighten-2'>Сайт на базе Vue.js фреймворка</span> выполнен как реклама бизнес организации ..."
-        }
+        },
+        {
+            icon: 'more',
+            to: '/portfolio/vue/examples',
+            title: 'Vue-Examples',
+            subtitle: "<span class='grey--text text--lighten-2'>Примеры Vue.js фреймворка</span> демонстрируются возможности работы ..."
+        },
+        {
+            icon: 'more',
+            to: '/portfolio/vue/vuex-examples',
+            title: 'Vuex-Examples',
+            subtitle: "<span class='grey--text text--lighten-2'>Примеры Vuex(state management) Vue.js фреймворка</span> демонстрируются возможности работы ..."
+        },
+        {divider: true, inset: false},
+        {header: 'Nuxt (JavaScript framework for Vue.js applications)'},
+        {
+            icon: 'work',
+            to: '/portfolio/nuxt/business-light',
+            title: 'Nuxt-Business-Light',
+            subtitle: "<span class='grey--text text--lighten-2'>Сайт на базе Nuxt фреймворка</span> выполнен как реклама бизнес организации ..."
+        },
+        {
+            icon: 'picture_in_picture',
+            to: '/portfolio/nuxt/vuetify-start',
+            title: 'Nuxt-Vuetify-Start',
+            subtitle: "<span class='grey--text text--lighten-2'>Примеры Vuetify.js(Material Component) фреймворка</span> демонстрируются возможности работы ..."
+        },
     ]
 }

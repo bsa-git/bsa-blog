@@ -118,8 +118,14 @@
                             {icon: 'show_chart', title: 'ZF2-ASM', to: '/portfolio/zf/asm'},
                             { divider: true, inset: true },
                             { header: 'Vue.js (JavaScript framework)' },
-                            {icon: 'more', title: 'Vue.js Examples', to: '/portfolio/vue/examples'},
+                            {icon: 'account_circle', title: 'Vue-Resume', to: '/portfolio/vue/resume'},
                             {icon: 'work', title: 'Vue-Business-Light', to: '/portfolio/vue/business-light'},
+                            {icon: 'more', title: 'Vue-Examples', to: '/portfolio/vue/examples'},
+                            {icon: 'more', title: 'Vuex-Examples', to: '/portfolio/vue/vuex-examples'},
+                            { divider: true, inset: true },
+                            { header: 'Nuxt (JavaScript framework)' },
+                            {icon: 'work', title: 'Nuxt-Business-Light', to: '/portfolio/nuxt/business-light'},
+                            {icon: 'picture_in_picture', title: 'Nuxt-Vuetify-Start', to: '/portfolio/nuxt/vuetify-start'}
                         ]
                     },
                     {
