@@ -8,6 +8,7 @@
             <p class="date-publication">2017-11-17</p>
             <v-card class="blog-post">
                 <v-card-text>
+                    <link-to-portfolio></link-to-portfolio>
                     <section>
                         <h1>Введение.</h1>
                         <p>
@@ -198,10 +199,12 @@
 
 <script>
     import Highlight from '~/plugins/lib/highlight/highlight.class'
+    import LinkToPortfolio from '~components/portfolio/link-to-portfolio.vue'
     import MyblogCode1 from '~components/portfolio/zf/myblog/code-1.vue'
 
     export default {
         components: {
+            LinkToPortfolio,
             MyblogCode1
         },
         data() {

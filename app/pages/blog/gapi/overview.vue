@@ -8,6 +8,7 @@
             <p class="date-publication">2017-08-21</p>
             <v-card class="blog-post">
                 <v-card-text>
+                    <link-to-blog></link-to-blog>
                     <section>
                         <h1>Введение.</h1>
                         <p>
@@ -232,11 +233,13 @@
 
 <script>
     import Highlight from '~/plugins/lib/highlight/highlight.class'
+    import LinkToBlog from '~components/blog/link-to-blog.vue'
     import OverviewCode1 from '~components/blog/gapi/overview/code-1.vue'
     import OverviewCode2 from '~components/blog/gapi/overview/code-2.vue'
 
     export default {
         components: {
+            LinkToBlog,
             OverviewCode1,
             OverviewCode2
         },

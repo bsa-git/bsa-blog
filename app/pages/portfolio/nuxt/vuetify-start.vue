@@ -8,6 +8,7 @@
             <p class="date-publication">2018-01-03</p>
             <v-card class="blog-post">
                 <v-card-text>
+                    <link-to-portfolio></link-to-portfolio>
                     <section>
                         <h1>Введение.</h1>
                         <p>
@@ -238,12 +239,14 @@ npm start
 
 <script>
     import Highlight from '~/plugins/lib/highlight/highlight.class'
+    import LinkToPortfolio from '~components/portfolio/link-to-portfolio.vue'
     import VuetifyStartCode1 from '~components/portfolio/nuxt/vuetify-start/code-1.vue'
     import VuetifyStartCode2 from '~components/portfolio/nuxt/vuetify-start/code-2.vue'
     import VuetifyStartCode3 from '~components/portfolio/nuxt/vuetify-start/code-3.vue'
 
     export default {
         components: {
+            LinkToPortfolio,
             VuetifyStartCode1,
             VuetifyStartCode2,
             VuetifyStartCode3

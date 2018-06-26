@@ -1,5 +1,13 @@
 export default {
     items: [
+        {header: 'Рекомендуемые ресурсы'},
+        {
+            icon: 'filter_none',
+            to: '/blog/resources/recommended',
+            title: 'Обзор',
+            subtitle: "<span class='grey--text text--lighten-2'>Ссылки на полезные инструменты и ресурсы для разработчика...</span>"
+        },
+        {divider: true, inset: true},
         {header: 'Google Client API'},
         {
             icon: 'filter_none',

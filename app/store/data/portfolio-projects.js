@@ -51,6 +51,14 @@ export default {
             subtitle: "<span class='grey--text text--lighten-2'>Простое приложение</span> реализующее сайт для отчетов и отображения данных в реальном времени, разработанное на базе «Zend Framework-2» ..."
         },
         {divider: true, inset: false},
+        {header: 'Node.js'},
+        {
+            icon: 'verified_user',
+            to: '/portfolio/node/express-passport',
+            title: 'Express-Passport',
+            subtitle: "<span class='grey--text text--lighten-2'>Примеры аутентификации/авторизации пользователя,</span> приложение выполнено на базе технологии «Express Passport» ..."
+        },
+        {divider: true, inset: false},
         {header: 'Vue.js (JavaScript framework)'},
         {
             icon: 'account_circle',

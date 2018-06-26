@@ -8,6 +8,7 @@
             <p class="date-publication">2017-11-10</p>
             <v-card class="blog-post">
                 <v-card-text>
+                    <link-to-portfolio></link-to-portfolio>
                     <section>
                         <h1>Введение.</h1>
                         <p>
@@ -128,12 +129,14 @@
 
 <script>
     import Highlight from '~/plugins/lib/highlight/highlight.class'
+    import LinkToPortfolio from '~components/portfolio/link-to-portfolio.vue'
     import PeopleCode1 from '~components/portfolio/gapi/people/code-1.vue'
     import PeopleCode2 from '~components/portfolio/gapi/people/code-2.vue'
     import PeopleCode3 from '~components/portfolio/gapi/people/code-3.vue'
 
     export default {
         components: {
+            LinkToPortfolio,
             PeopleCode1,
             PeopleCode2,
             PeopleCode3

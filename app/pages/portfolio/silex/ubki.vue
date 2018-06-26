@@ -8,6 +8,7 @@
             <p class="date-publication">2017-11-16</p>
             <v-card class="blog-post">
                 <v-card-text>
+                    <link-to-portfolio></link-to-portfolio>
                     <section>
                         <h1>Введение.</h1>
                         <p>
@@ -254,6 +255,7 @@
 
 <script>
     import Highlight from '~/plugins/lib/highlight/highlight.class'
+    import LinkToPortfolio from '~components/portfolio/link-to-portfolio.vue'
     import UbkiCode1 from '~components/portfolio/silex/ubki/code-1.vue'
     import UbkiCode2 from '~components/portfolio/silex/ubki/code-2.vue'
     import UbkiCode3 from '~components/portfolio/silex/ubki/code-3.vue'
@@ -263,6 +265,7 @@
 
     export default {
         components: {
+            LinkToPortfolio,
             UbkiCode1,
             UbkiCode2,
             UbkiCode3,

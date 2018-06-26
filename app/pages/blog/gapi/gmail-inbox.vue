@@ -8,6 +8,7 @@
             <p class="date-publication">2017-11-08</p>
             <v-card class="blog-post">
                 <v-card-text>
+                    <link-to-blog></link-to-blog>
                     <gmail-inbox-introduction></gmail-inbox-introduction>
                     <section>
                         <h2>Ресурсы</h2>
@@ -138,6 +139,7 @@
 
 <script>
     import Highlight from '~/plugins/lib/highlight/highlight.class'
+    import LinkToBlog from '~components/blog/link-to-blog.vue'
     import GmailInboxIntroduction from '~components/blog/gapi/gmail-send/introduction.vue'
     import GmailInboxCode1 from '~components/blog/gapi/gmail-send/code-1.vue'
     import GmailInboxCode2 from '~components/blog/gapi/gmail-send/code-2.vue'
@@ -147,6 +149,7 @@
 
     export default {
         components: {
+            LinkToBlog,
             GmailInboxIntroduction,
             GmailInboxCode1,
             GmailInboxCode2,

@@ -8,6 +8,7 @@
             <p class="date-publication">2017-11-15</p>
             <v-card class="blog-post">
                 <v-card-text>
+                    <link-to-portfolio></link-to-portfolio>
                     <section>
                         <h1>Введение.</h1>
                         <p>
@@ -225,6 +226,7 @@
 
 <script>
     import Highlight from '~/plugins/lib/highlight/highlight.class'
+    import LinkToPortfolio from '~components/portfolio/link-to-portfolio.vue'
     import MvcCode1 from '~components/portfolio/silex/mvc/code-1.vue'
     import MvcCode2 from '~components/portfolio/silex/mvc/code-2.vue'
     import MvcCode3 from '~components/portfolio/silex/mvc/code-3.vue'
@@ -234,6 +236,7 @@
 
     export default {
         components: {
+            LinkToPortfolio,
             MvcCode1,
             MvcCode2,
             MvcCode3,

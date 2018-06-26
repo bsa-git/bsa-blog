@@ -102,8 +102,8 @@
                         action: 'shop',
                         title: 'Портфолио',
                         children: [
-                            {icon: 'filter_none', title: 'Перечень работ', to: '/portfolio/list'},
-                            { divider: true, inset: true },
+//                            {icon: 'filter_none', title: 'Перечень работ', to: '/portfolio/list'},
+//                            { divider: true, inset: true },
                             { header: 'Google API' },
                             {icon: 'wc', title: 'Gapi-People', to: '/portfolio/gapi/people'},
                             {icon: 'mail_outline', title: 'Gapi-Email', to: '/portfolio/gapi/email'},
@@ -116,6 +116,9 @@
                             { header: 'Zend (PHP framework)' },
                             {icon: 'library_books', title: 'ZF-MyBlog', to: '/portfolio/zf/myblog'},
                             {icon: 'show_chart', title: 'ZF2-ASM', to: '/portfolio/zf/asm'},
+                            { divider: true, inset: true },
+                            { header: 'Node.js' },
+                            {icon: 'verified_user', title: 'Express-Passport', to: '/portfolio/node/express-passport'},
                             { divider: true, inset: true },
                             { header: 'Vue.js (JavaScript framework)' },
                             {icon: 'account_circle', title: 'Vue-Resume', to: '/portfolio/vue/resume'},
@@ -131,6 +134,14 @@
                     {
                         divider: true,
                         header: 'Темы',
+                        action: 'message',
+                        title: 'WEB ресурсы',
+                        children: [
+                            {icon: 'filter_none', title: 'Обзор', to: '/blog/resources/recommended'}
+                        ]
+                    },
+                    {
+                        divider: true,
                         action: 'message',
                         title: 'Google Client API',
                         children: [
