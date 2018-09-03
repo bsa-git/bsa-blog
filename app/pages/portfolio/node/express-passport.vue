@@ -20,7 +20,7 @@
                             А также другие стратегии такие как <a href="http://www.passportjs.org/docs/facebook/">Facebook</a>, <a
                                 href="http://www.passportjs.org/docs/twitter/">Twitter</a>
                             и <a href="http://www.passportjs.org/packages/">многие другие.</a>.
-                            При разработке своего проекта я использовал основные идеи из замечательного приложения <a
+                            При разработке своего проекта я использовал основные идеи из приложения <a
                                 href="https://github.com/sahat/hackathon-starter" target="_blank">Hackathon-starter</a>.
                         </p>
                         <p class="subheading">

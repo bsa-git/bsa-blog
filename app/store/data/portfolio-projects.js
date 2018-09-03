@@ -58,6 +58,12 @@ export default {
             title: 'Express-Passport',
             subtitle: "<span class='grey--text text--lighten-2'>Примеры аутентификации/авторизации пользователя,</span> приложение выполнено на базе технологии «Express Passport» ..."
         },
+        {
+            icon: 'more',
+            to: '/portfolio/node/feathers-exx',
+            title: 'Feathers Examples',
+            subtitle: "<span class='grey--text text--lighten-2'>Примеры работы с сервисами, базами данных, аутентификация/авторизация пользователей,</span> приложение выполнено на базе «Feathers фреймворка» ..."
+        },
         {divider: true, inset: false},
         {header: 'Vue.js (JavaScript framework)'},
         {
