@@ -186,11 +186,11 @@ class HttpBox {
     }
 
     static getHttpCode(code) {
-        return HttpBox.httpCodes[code]
+        return HttpBox.httpCodes()[code]
     }
 
     static getMimeType(type) {
-        return HttpBox.mimeTypes[type]
+        return HttpBox.mimeTypes()[type]
     }
 
     /**
