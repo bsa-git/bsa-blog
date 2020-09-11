@@ -120,6 +120,7 @@
                             { header: 'Node.js' },
                             {icon: 'verified_user', title: 'Express-Passport', to: '/portfolio/node/express-passport'},
                             {icon: 'more', title: 'Feathers-Examples', to: '/portfolio/node/feathers-exx'},
+                            {icon: 'more', title: 'Feathers-Plus-Admin', to: '/portfolio/node/feathers-plus-admin'},
                             { divider: true, inset: true },
                             { header: 'Vue.js (JavaScript framework)' },
                             {icon: 'account_circle', title: 'Vue-Resume', to: '/portfolio/vue/resume'},
