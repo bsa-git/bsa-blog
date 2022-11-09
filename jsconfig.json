@@ -1,0 +1,5 @@
+{
+    "vueCompilerOptions": {"target": 2},
+    "include": ["app/**/*"],
+    "exclude": ["node_modules", ".nuxt", "docs"]
+}

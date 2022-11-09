@@ -73,7 +73,6 @@
                             <li>Пользовательский интерфейс выполнен на базе клиенского фрейморка <strong>Vuetify - Material Design Component Framework</strong></li>
                             <li>Показаны примеры работы компонентов <strong>Vuetify</strong> пользовательского интерфейса</li>
                             <li>Реализован пример <strong>Chat</strong> (обмена сообщениями между пользователями) в реальном времени</li>
-
                         </ul>
                     </section>
                     <section>
